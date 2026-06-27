@@ -45,6 +45,14 @@ export default function AdminLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="create-group"
+        options={{ href: null }}
+      />
+      <Tabs.Screen
+        name="group-created"
+        options={{ href: null }}
+      />
     </Tabs>
   );
 }

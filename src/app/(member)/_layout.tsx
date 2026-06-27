@@ -45,6 +45,10 @@ export default function MemberLayout() {
           ),
         }}
       />
+      <Tabs.Screen
+        name="contribute"
+        options={{ href: null }}
+      />
     </Tabs>
   );
 }
