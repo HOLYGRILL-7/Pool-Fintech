@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
   View,
   Text,
@@ -6,253 +6,201 @@ import {
   TouchableOpacity,
   ScrollView,
   SafeAreaView,
+  StatusBar,
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import {
-  ArrowLeft,
   Bell,
-  UserCircle,
-  CheckCircle,
-  Clock,
-  XCircle,
-  Wallet,
-  SlidersHorizontal,
-  Plus,
+  TrendingUp,
+  Users,
+  Briefcase,
+  Plane,
+  HeartHandshake,
+  GraduationCap,
+  ChevronRight,
+  ShieldCheck,
 } from 'lucide-react-native';
-
-// ─── Types ────────────────────────────────────────────────────────────────────
-
-type TabKey = 'All' | 'Paid' | 'Pending';
-
-type ContributionStatus = 'paid' | 'processing' | 'overdue';
-
-interface Contribution {
-  id: string;
-  title: string;
-  subtitle: string;
-  amount: string;
-  status: ContributionStatus;
-  borderColor: string;
-  iconBg: string;
-  iconColor: string;
-  icon: 'CheckCircle' | 'Clock' | 'XCircle';
-}
 
 // ─── Mock Data ────────────────────────────────────────────────────────────────
 
-const MOCK_CONTRIBUTIONS: Contribution[] = [
+interface Group {
+  id: string;
+  name: string;
+  status: 'Active' | 'Pending' | 'Overdue';
+  statusColor: string;
+  members: string;
+  detail: string;
+  borderColor: string;
+  iconBg: string;
+  iconColor: string;
+  icon: 'Users' | 'Briefcase' | 'Plane' | 'HeartHandshake' | 'GraduationCap';
+}
+
+const MOCK_GROUPS: Group[] = [
   {
     id: '1',
-    title: 'Week 1 Contribution',
-    subtitle: 'Paid on Oct 04',
-    amount: '$625.00',
-    status: 'paid',
+    name: 'Family Savings',
+    status: 'Active',
+    statusColor: '#0D9488',
+    members: '5 members',
+    detail: 'Next in 4 days',
     borderColor: '#0D9488',
     iconBg: '#D1FAE5',
     iconColor: '#0D9488',
-    icon: 'CheckCircle',
+    icon: 'Users',
   },
   {
     id: '2',
-    title: 'Week 2 Contribution',
-    subtitle: 'Paid on Oct 11',
-    amount: '$625.00',
-    status: 'paid',
+    name: 'Tech Founders',
+    status: 'Active',
+    statusColor: '#0D9488',
+    members: '8 members',
+    detail: 'Next in 12 days',
     borderColor: '#0D9488',
-    iconBg: '#D1FAE5',
-    iconColor: '#0D9488',
-    icon: 'CheckCircle',
+    iconBg: '#DBEAFE',
+    iconColor: '#2563EB',
+    icon: 'Briefcase',
   },
   {
     id: '3',
-    title: 'Week 3 Contribution',
-    subtitle: 'Processing Payment...',
-    amount: '$625.00',
-    status: 'processing',
+    name: 'Holiday Fund',
+    status: 'Pending',
+    statusColor: '#F59E0B',
+    members: '4 members',
+    detail: 'Awaiting start',
     borderColor: '#F59E0B',
     iconBg: '#FEF3C7',
     iconColor: '#F59E0B',
-    icon: 'Clock',
+    icon: 'Plane',
   },
   {
     id: '4',
-    title: 'Week 4 Contribution',
-    subtitle: 'Overdue by 2 days',
-    amount: '$625.00',
-    status: 'overdue',
+    name: 'Community Support',
+    status: 'Overdue',
+    statusColor: '#DC2626',
+    members: '12 members',
+    detail: 'Contribution missed',
     borderColor: '#DC2626',
     iconBg: '#FEE2E2',
     iconColor: '#DC2626',
-    icon: 'XCircle',
+    icon: 'HeartHandshake',
+  },
+  {
+    id: '5',
+    name: 'Education Trust',
+    status: 'Active',
+    statusColor: '#0D9488',
+    members: '3 members',
+    detail: 'Monthly cycle',
+    borderColor: '#0D9488',
+    iconBg: '#D1FAE5',
+    iconColor: '#0D9488',
+    icon: 'GraduationCap',
   },
 ];
 
-const TABS: TabKey[] = ['All', 'Paid', 'Pending'];
+// ─── Helper to Resolve Icons ─────────────────────────────────────────────────
 
-// ─── Helper: resolve icon component ──────────────────────────────────────────
-
-function StatusIcon({
-  name,
-  size,
-  color,
-}: {
-  name: Contribution['icon'];
-  size: number;
-  color: string;
-}) {
-  if (name === 'CheckCircle') return <CheckCircle size={size} color={color} />;
-  if (name === 'Clock') return <Clock size={size} color={color} />;
-  return <XCircle size={size} color={color} />;
-}
+const getIconComponent = (iconName: Group['icon'], color: string) => {
+  const iconProps = { size: 22, color: color };
+  switch (iconName) {
+    case 'Users':
+      return <Users {...iconProps} />;
+    case 'Briefcase':
+      return <Briefcase {...iconProps} />;
+    case 'Plane':
+      return <Plane {...iconProps} />;
+    case 'HeartHandshake':
+      return <HeartHandshake {...iconProps} />;
+    case 'GraduationCap':
+      return <GraduationCap {...iconProps} />;
+    default:
+      return <Users {...iconProps} />;
+  }
+};
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
-export default function GroupsScreen() {
+export default function MyPoolsScreen() {
   const router = useRouter();
-  const [activeTab, setActiveTab] = useState<TabKey>('All');
-
-  const filteredContributions = MOCK_CONTRIBUTIONS.filter((c) => {
-    if (activeTab === 'All') return true;
-    if (activeTab === 'Paid') return c.status === 'paid';
-    // "Pending" covers processing + overdue
-    return c.status === 'processing' || c.status === 'overdue';
-  });
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.safeArea}>
+      <StatusBar barStyle="dark-content" backgroundColor="#F0F4F8" />
+      
       {/* ── Header ── */}
       <View style={styles.header}>
-        <TouchableOpacity style={styles.headerIcon} activeOpacity={0.7} onPress={() => router.back()}>
-          <ArrowLeft size={24} color="#0A1628" />
+        <Text style={styles.headerTitle}>My Pools</Text>
+        <TouchableOpacity style={styles.bellButton} activeOpacity={0.7}>
+          <Bell size={24} color="#0A1628" />
         </TouchableOpacity>
-
-        <Text style={styles.headerTitle}>Contributions</Text>
-
-        <View style={styles.headerRight}>
-          <TouchableOpacity style={styles.headerIcon} activeOpacity={0.7}>
-            <Bell size={22} color="#0A1628" />
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.avatarButton} activeOpacity={0.7} onPress={() => router.push('/(member)/profile')}>
-            <UserCircle size={34} color="#0A1628" />
-          </TouchableOpacity>
-        </View>
       </View>
 
-      {/* ── Scrollable Body ── */}
+      {/* ── Scrollable Content ── */}
       <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* ── Dark Navy Hero Card ── */}
+        {/* ── Hero Card ── */}
         <View style={styles.heroCard}>
-          <Text style={styles.heroLabel}>ACTIVE GROUP</Text>
-          <Text style={styles.heroGroupName}>
-            Tech Founders Savings Circle
-          </Text>
-
-          <View style={styles.heroStats}>
-            {/* Left stat */}
-            <View style={styles.heroStatBlock}>
-              <Text style={styles.heroStatLabel}>Total Contributed</Text>
-              <Text style={styles.heroStatAmount}>$12,450.00</Text>
-            </View>
-
-            {/* Right stat */}
-            <View style={styles.heroStatBlockRight}>
-              <Text style={[styles.heroStatLabel, styles.textRight]}>
-                This Month
-              </Text>
-              <Text style={[styles.heroStatAmount, styles.textRight]}>
-                $2,500.00
-              </Text>
+          <ShieldCheck
+            size={110}
+            color="#FFFFFF"
+            style={styles.heroBgIcon}
+          />
+          <View style={styles.heroContent}>
+            <Text style={styles.heroLabel}>TOTAL CONTRIBUTED ACROSS ALL POOLS</Text>
+            <Text style={styles.heroAmount}>$12,450.00</Text>
+            <View style={styles.trendingRow}>
+              <TrendingUp size={16} color="#0D9488" style={styles.trendingIcon} />
+              <Text style={styles.trendingText}>↑ 8.2% from last month</Text>
             </View>
           </View>
         </View>
 
-        {/* ── Underline Tab Row ── */}
-        <View style={styles.tabRow}>
-          {TABS.map((tab) => {
-            const isActive = activeTab === tab;
-            return (
-              <TouchableOpacity
-                key={tab}
-                style={styles.tabItem}
-                activeOpacity={0.7}
-                onPress={() => setActiveTab(tab)}
-              >
-                <Text
-                  style={[
-                    styles.tabText,
-                    isActive && styles.tabTextActive,
-                  ]}
-                >
-                  {tab}
-                </Text>
-                {isActive && <View style={styles.tabUnderline} />}
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+        {/* ── Section Title ── */}
+        <Text style={styles.sectionTitle}>My Pools</Text>
 
-        {/* ── Contribution Cards ── */}
+        {/* ── Pools List ── */}
         <View style={styles.listContainer}>
-          {filteredContributions.map((item) => (
-            <View
+          {MOCK_GROUPS.map((item) => (
+            <TouchableOpacity
               key={item.id}
-              style={[styles.contributionCard, { borderLeftColor: item.borderColor }]}
+              style={[styles.card, { borderLeftColor: item.borderColor }]}
+              activeOpacity={0.7}
+              onPress={() =>
+                router.push({
+                  pathname: '/(member)/dashboard',
+                  params: { groupId: item.id, groupName: item.name },
+                })
+              }
             >
-              {/* Icon circle */}
               <View style={[styles.iconCircle, { backgroundColor: item.iconBg }]}>
-                <StatusIcon
-                  name={item.icon}
-                  size={22}
-                  color={item.iconColor}
-                />
+                {getIconComponent(item.icon, item.iconColor)}
               </View>
-
-              {/* Title & subtitle */}
-              <View style={styles.cardInfo}>
-                <Text style={styles.cardTitle}>{item.title}</Text>
-                <Text
-                  style={[
-                    styles.cardSubtitle,
-                    item.status === 'overdue' && styles.cardSubtitleRed,
-                  ]}
-                >
-                  {item.subtitle}
+              
+              <View style={styles.cardContent}>
+                <View style={styles.groupHeaderRow}>
+                  <Text style={styles.groupName} numberOfLines={1}>
+                    {item.name}
+                  </Text>
+                  <View style={[styles.statusBadge, { backgroundColor: item.iconBg }]}>
+                    <View style={[styles.statusDot, { backgroundColor: item.statusColor }]} />
+                    <Text style={[styles.statusText, { color: item.statusColor }]}>
+                      {item.status}
+                    </Text>
+                  </View>
+                </View>
+                <Text style={styles.metaText}>
+                  {item.members} • {item.detail}
                 </Text>
               </View>
 
-              {/* Amount */}
-              <Text style={styles.cardAmount}>{item.amount}</Text>
-            </View>
+              <ChevronRight size={20} color="#9CA3AF" />
+            </TouchableOpacity>
           ))}
         </View>
-
-        {/* ── Make Contribution Button ── */}
-        <TouchableOpacity style={styles.makeContribBtn} activeOpacity={0.9} onPress={() => router.push('/(member)/contribute' as any)}>
-          <Wallet size={20} color="#FFFFFF" style={styles.walletIcon} />
-          <Text style={styles.makeContribText}>Make Contribution</Text>
-        </TouchableOpacity>
-
-        {/* ── Transaction History ── */}
-        <View style={styles.txHeader}>
-          <Text style={styles.txTitle}>Transaction History</Text>
-          <TouchableOpacity activeOpacity={0.7}>
-            <SlidersHorizontal size={20} color="#0A1628" />
-          </TouchableOpacity>
-        </View>
-
-        {/* Empty state */}
-        <View style={styles.emptyState}>
-          <Text style={styles.emptyText}>No transactions yet</Text>
-        </View>
       </ScrollView>
-
-      {/* ── Floating "+" Button ── */}
-      <TouchableOpacity style={styles.fab} activeOpacity={0.9} onPress={() => router.push('/(member)/discovery')}>
-        <Plus size={26} color="#FFFFFF" />
-      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -260,144 +208,99 @@ export default function GroupsScreen() {
 // ─── Styles ───────────────────────────────────────────────────────────────────
 
 const styles = StyleSheet.create({
-  // Layout
-  container: {
+  safeArea: {
     flex: 1,
     backgroundColor: '#F0F4F8',
   },
-  scrollContent: {
-    paddingBottom: 100,
-  },
-
-  // ── Header ──
   header: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 16,
-    paddingVertical: 12,
-    backgroundColor: '#F0F4F8',
+    paddingHorizontal: 20,
+    paddingTop: 16,
+    paddingBottom: 8,
   },
   headerTitle: {
-    flex: 1,
-    textAlign: 'center',
-    fontSize: 20,
-    fontWeight: '700',
+    fontSize: 28,
+    fontWeight: '800',
     color: '#0A1628',
   },
-  headerRight: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 4,
-  },
-  headerIcon: {
+  bellButton: {
     padding: 4,
   },
-  avatarButton: {
-    padding: 2,
+  scrollContent: {
+    paddingBottom: 24,
   },
-
-  // ── Hero Card ──
   heroCard: {
     backgroundColor: '#0A1628',
     borderRadius: 16,
-    padding: 20,
     marginHorizontal: 16,
-    marginBottom: 20,
-    shadowColor: '#000',
+    marginVertical: 16,
+    padding: 20,
+    position: 'relative',
+    overflow: 'hidden',
+    // shadow
+    shadowColor: '#0A1628',
     shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.18,
-    shadowRadius: 14,
-    elevation: 6,
+    shadowOpacity: 0.15,
+    shadowRadius: 12,
+    elevation: 4,
+  },
+  heroBgIcon: {
+    position: 'absolute',
+    right: -10,
+    bottom: -15,
+    opacity: 0.06,
+  },
+  heroContent: {
+    zIndex: 1,
   },
   heroLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#9CA3AF',
+    color: '#94A3B8',
     letterSpacing: 1,
-    marginBottom: 6,
+    marginBottom: 8,
   },
-  heroGroupName: {
-    fontSize: 22,
+  heroAmount: {
+    fontSize: 32,
     fontWeight: '800',
     color: '#FFFFFF',
-    lineHeight: 30,
-    marginBottom: 20,
+    marginBottom: 8,
   },
-  heroStats: {
+  trendingRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-  },
-  heroStatBlock: {
-    flex: 1,
-  },
-  heroStatBlockRight: {
-    flex: 1,
-    alignItems: 'flex-end',
-  },
-  heroStatLabel: {
-    fontSize: 12,
-    color: '#9CA3AF',
-    fontWeight: '500',
-    marginBottom: 4,
-  },
-  heroStatAmount: {
-    fontSize: 22,
-    fontWeight: '800',
-    color: '#FFFFFF',
-  },
-  textRight: {
-    textAlign: 'right',
-  },
-
-  // ── Tabs ──
-  tabRow: {
-    flexDirection: 'row',
-    paddingHorizontal: 16,
-    marginBottom: 16,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-  },
-  tabItem: {
-    marginRight: 28,
-    paddingBottom: 10,
-    position: 'relative',
     alignItems: 'center',
   },
-  tabText: {
-    fontSize: 15,
+  trendingIcon: {
+    marginRight: 4,
+  },
+  trendingText: {
+    fontSize: 13,
     fontWeight: '600',
-    color: '#6B7280',
+    color: '#0D9488',
   },
-  tabTextActive: {
-    color: '#0A1628',
+  sectionTitle: {
+    fontSize: 18,
     fontWeight: '700',
+    color: '#0A1628',
+    marginHorizontal: 16,
+    marginTop: 8,
+    marginBottom: 12,
   },
-  tabUnderline: {
-    position: 'absolute',
-    bottom: -1,
-    left: 0,
-    right: 0,
-    height: 2,
-    backgroundColor: '#0A1628',
-    borderRadius: 2,
-  },
-
-  // ── Contribution Cards ──
   listContainer: {
     paddingHorizontal: 16,
-    gap: 12,
-    marginBottom: 24,
   },
-  contributionCard: {
+  card: {
     backgroundColor: '#FFFFFF',
     borderRadius: 12,
-    borderLeftWidth: 4,
-    padding: 14,
+    padding: 16,
+    marginBottom: 12,
     flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: '#000',
+    borderLeftWidth: 4,
+    // shadow
+    shadowColor: '#0A1628',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.05,
     shadowRadius: 6,
@@ -407,96 +310,46 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
     marginRight: 12,
   },
-  cardInfo: {
+  cardContent: {
     flex: 1,
+    justifyContent: 'center',
+    marginRight: 8,
   },
-  cardTitle: {
-    fontSize: 15,
+  groupHeaderRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 4,
+  },
+  groupName: {
+    fontSize: 16,
     fontWeight: '700',
     color: '#0A1628',
-    marginBottom: 3,
+    flexShrink: 1,
   },
-  cardSubtitle: {
+  statusBadge: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 3,
+    borderRadius: 12,
+    marginLeft: 8,
+  },
+  statusDot: {
+    width: 6,
+    height: 6,
+    borderRadius: 3,
+    marginRight: 4,
+  },
+  statusText: {
+    fontSize: 11,
+    fontWeight: '700',
+  },
+  metaText: {
     fontSize: 13,
     color: '#6B7280',
-  },
-  cardSubtitleRed: {
-    color: '#DC2626',
-  },
-  cardAmount: {
-    fontSize: 16,
-    fontWeight: '700',
-    color: '#0A1628',
-  },
-
-  // ── Make Contribution Button ──
-  makeContribBtn: {
-    backgroundColor: '#0A1628',
-    borderRadius: 14,
-    height: 54,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginHorizontal: 16,
-    marginBottom: 28,
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 4,
-  },
-  walletIcon: {
-    marginRight: 10,
-  },
-  makeContribText: {
-    color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '700',
-  },
-
-  // ── Transaction History ──
-  txHeader: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: 16,
-    marginBottom: 20,
-  },
-  txTitle: {
-    fontSize: 18,
-    fontWeight: '800',
-    color: '#0A1628',
-  },
-
-  // ── Empty State ──
-  emptyState: {
-    alignItems: 'center',
-    paddingVertical: 24,
-  },
-  emptyText: {
-    fontSize: 14,
-    color: '#9CA3AF',
-  },
-
-  // ── FAB ──
-  fab: {
-    position: 'absolute',
-    bottom: 28,
-    right: 24,
-    width: 58,
-    height: 58,
-    borderRadius: 29,
-    backgroundColor: '#0A1628',
-    alignItems: 'center',
-    justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 10,
-    elevation: 6,
   },
 });

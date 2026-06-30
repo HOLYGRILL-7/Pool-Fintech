@@ -163,9 +163,9 @@ export default function DiscoveryScreen() {
       </ScrollView>
 
       {/* Floating "+" Action Button */}
-      <TouchableOpacity style={styles.fab} activeOpacity={0.9} onPress={() => router.push('/(member)/contribute' as any)}>
+      {/* <TouchableOpacity style={styles.fab} activeOpacity={0.9} onPress={() => router.push('/(member)/contribute' as any)}>
         <Plus size={24} color="#FFFFFF" />
-      </TouchableOpacity>
+      </TouchableOpacity> */}
     </SafeAreaView>
   );
 }
