@@ -30,7 +30,7 @@ export default function GroupCreatedScreen() {
           activeOpacity={0.7}
           onPress={handleClose}
         >
-          <X size={20} color="#0A1628" />
+          <X size={20} color="#FFFFFF" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Group Created</Text>
         <View style={styles.headerSpacer} />
@@ -43,11 +43,11 @@ export default function GroupCreatedScreen() {
         {/* ── Hero Illustration Section ── */}
         <View style={styles.heroSection}>
           {/* Decorative scattered dots */}
-          <View style={[styles.dot, { top: 20, left: 30, width: 8, height: 8, backgroundColor: '#0D9488' }]} />
-          <View style={[styles.dot, { top: 40, right: 40, width: 12, height: 12, backgroundColor: '#3B82F6' }]} />
-          <View style={[styles.dot, { bottom: 30, left: 50, width: 10, height: 10, backgroundColor: '#D1D5DB' }]} />
-          <View style={[styles.dot, { bottom: 40, right: 60, width: 6, height: 6, backgroundColor: '#0D9488' }]} />
-          <View style={[styles.dot, { top: 80, left: 80, width: 6, height: 6, backgroundColor: '#D1D5DB' }]} />
+          <View style={[styles.dot, { top: 20, left: 30, width: 8, height: 8, backgroundColor: '#2ECC71' }]} />
+          <View style={[styles.dot, { top: 40, right: 40, width: 12, height: 12, backgroundColor: '#F59E0B' }]} />
+          <View style={[styles.dot, { bottom: 30, left: 50, width: 10, height: 10, backgroundColor: '#1E3328' }]} />
+          <View style={[styles.dot, { bottom: 40, right: 60, width: 6, height: 6, backgroundColor: '#2ECC71' }]} />
+          <View style={[styles.dot, { top: 80, left: 80, width: 6, height: 6, backgroundColor: '#1E3328' }]} />
 
           {/* Large green outer circle */}
           <View style={styles.outerCircle}>
@@ -55,7 +55,7 @@ export default function GroupCreatedScreen() {
             <View style={styles.middleCircle}>
               {/* White center circle */}
               <View style={styles.innerCircle}>
-                <Check size={48} color="#0D9488" strokeWidth={3} />
+                <Check size={48} color="#2ECC71" strokeWidth={3} />
               </View>
             </View>
           </View>
@@ -67,12 +67,12 @@ export default function GroupCreatedScreen() {
           Tech Founders Savings Circle has been successfully created. You can now start inviting members to join.
         </Text>
 
-        {/* ── White Card ── */}
+        {/* ── Card ── */}
         <View style={styles.card}>
           {/* Group Name Row */}
           <View style={styles.cardHeaderRow}>
             <View style={styles.iconContainer}>
-              <Users size={20} color="#0D9488" />
+              <Users size={20} color="#2ECC71" />
             </View>
             <View style={styles.groupNameBlock}>
               <Text style={styles.cardLabel}>GROUP NAME</Text>
@@ -99,7 +99,7 @@ export default function GroupCreatedScreen() {
 
         {/* ── Tip Row ── */}
         <View style={styles.tipRow}>
-          <MapPin size={18} color="#6B7280" style={styles.tipIcon} />
+          <MapPin size={18} color="#8BA89E" style={styles.tipIcon} />
           <Text style={styles.tipText}>
             Tip: Groups with a clear target description tend to reach their goals 20% faster.
           </Text>
@@ -108,7 +108,7 @@ export default function GroupCreatedScreen() {
         {/* ── Action Buttons ── */}
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={styles.inviteButton} activeOpacity={0.9} onPress={handleGoToDashboard}>
-            <UserPlus size={18} color="#FFFFFF" style={styles.buttonIcon} />
+            <UserPlus size={18} color="#0D1F1A" style={styles.buttonIcon} />
             <Text style={styles.inviteButtonText}>Invite Members</Text>
           </TouchableOpacity>
 
@@ -128,7 +128,7 @@ export default function GroupCreatedScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   header: {
     flexDirection: 'row',
@@ -137,8 +137,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-    backgroundColor: '#FFFFFF',
+    borderBottomColor: '#1E3328',
+    backgroundColor: '#0D1F1A',
   },
   closeButton: {
     width: 36,
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   headerSpacer: {
     width: 36,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
 
   // ── Hero Section ──
   heroSection: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#162820',
     borderRadius: 20,
     margin: 16,
     padding: 24,
@@ -170,6 +170,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     position: 'relative',
     overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   dot: {
     position: 'absolute',
@@ -179,7 +181,7 @@ const styles = StyleSheet.create({
     width: 180,
     height: 180,
     borderRadius: 90,
-    backgroundColor: 'rgba(13, 148, 136, 0.2)',
+    backgroundColor: 'rgba(46, 204, 113, 0.15)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -187,7 +189,7 @@ const styles = StyleSheet.create({
     width: 130,
     height: 130,
     borderRadius: 65,
-    backgroundColor: 'rgba(13, 148, 136, 0.35)',
+    backgroundColor: 'rgba(46, 204, 113, 0.25)',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -195,21 +197,18 @@ const styles = StyleSheet.create({
     width: 80,
     height: 80,
     borderRadius: 40,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0D1F1A',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 3,
+    borderWidth: 2,
+    borderColor: '#2ECC71',
   },
 
   // ── Typography ──
   successTitle: {
     fontSize: 22,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
     textAlign: 'center',
     marginHorizontal: 16,
     marginTop: 8,
@@ -217,7 +216,7 @@ const styles = StyleSheet.create({
   },
   successSubtitle: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#8BA89E',
     textAlign: 'center',
     lineHeight: 20,
     marginHorizontal: 24,
@@ -226,18 +225,15 @@ const styles = StyleSheet.create({
 
   // ── Card ──
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 16,
     borderLeftWidth: 4,
-    borderLeftColor: '#0D9488',
+    borderLeftColor: '#2ECC71',
     marginHorizontal: 16,
     marginVertical: 8,
     padding: 18,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.05,
-    shadowRadius: 8,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   cardHeaderRow: {
     flexDirection: 'row',
@@ -248,7 +244,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#1E3328',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -258,7 +254,7 @@ const styles = StyleSheet.create({
   cardLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#6B7280',
+    color: '#8BA89E',
     textTransform: 'uppercase',
     letterSpacing: 0.5,
     marginBottom: 2,
@@ -266,11 +262,11 @@ const styles = StyleSheet.create({
   groupNameText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   cardDivider: {
     height: 1,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#1E3328',
     marginVertical: 14,
   },
   detailsRow: {
@@ -289,11 +285,11 @@ const styles = StyleSheet.create({
   detailValue: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginTop: 2,
   },
   categoryBadge: {
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#1E3328',
     borderRadius: 6,
     paddingHorizontal: 8,
     paddingVertical: 3,
@@ -303,19 +299,21 @@ const styles = StyleSheet.create({
   categoryBadgeText: {
     fontSize: 11,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
 
   // ── Tip Row ──
   tipRow: {
     flexDirection: 'row',
-    backgroundColor: '#F0FDF4',
+    backgroundColor: '#162820',
     borderRadius: 10,
     marginHorizontal: 16,
     marginVertical: 8,
     padding: 12,
     alignItems: 'center',
     gap: 8,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   tipIcon: {
     flexShrink: 0,
@@ -323,7 +321,7 @@ const styles = StyleSheet.create({
   tipText: {
     flex: 1,
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
     fontStyle: 'italic',
     lineHeight: 18,
   },
@@ -335,37 +333,32 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   inviteButton: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     borderRadius: 12,
     height: 52,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 4,
   },
   buttonIcon: {
     marginRight: 8,
   },
   inviteButtonText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 16,
     fontWeight: '700',
   },
   dashboardButton: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'transparent',
     borderRadius: 12,
     height: 52,
     borderWidth: 1.5,
-    borderColor: '#0A1628',
+    borderColor: '#F59E0B',
     alignItems: 'center',
     justifyContent: 'center',
   },
   dashboardButtonText: {
-    color: '#0A1628',
+    color: '#F59E0B',
     fontSize: 16,
     fontWeight: '700',
   },

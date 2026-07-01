@@ -46,7 +46,7 @@ export default function CreateGroupModal() {
               activeOpacity={0.7}
               onPress={() => router.back()}
             >
-              <X size={20} color="#6B7280" />
+              <X size={20} color="#8BA89E" />
             </TouchableOpacity>
           </View>
 
@@ -61,7 +61,7 @@ export default function CreateGroupModal() {
               <TextInput
                 style={styles.input}
                 placeholder="e.g., Tech Founders Savings"
-                placeholderTextColor="#9CA3AF"
+                placeholderTextColor="#8BA89E"
                 value={groupName}
                 onChangeText={setGroupName}
                 autoCapitalize="words"
@@ -74,7 +74,7 @@ export default function CreateGroupModal() {
               <TextInput
                 style={[styles.input, styles.textArea]}
                 placeholder="Describe the group's financial goal and purpose..."
-                placeholderTextColor="#9CA3AF"
+                placeholderTextColor="#8BA89E"
                 value={description}
                 onChangeText={setDescription}
                 multiline
@@ -91,7 +91,7 @@ export default function CreateGroupModal() {
                 <TextInput
                   style={styles.prefixInput}
                   placeholder="0.00"
-                  placeholderTextColor="#9CA3AF"
+                  placeholderTextColor="#8BA89E"
                   value={contribution}
                   onChangeText={setContribution}
                   keyboardType="decimal-pad"
@@ -105,7 +105,7 @@ export default function CreateGroupModal() {
               <TextInput
                 style={styles.input}
                 placeholder="No limit"
-                placeholderTextColor="#9CA3AF"
+                placeholderTextColor="#8BA89E"
                 value={memberLimit}
                 onChangeText={setMemberLimit}
                 keyboardType="number-pad"
@@ -159,14 +159,14 @@ export default function CreateGroupModal() {
 const styles = StyleSheet.create({
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.45)',
+    backgroundColor: 'rgba(0,0,0,0.65)',
     justifyContent: 'flex-end',
   },
   keyboardView: {
     justifyContent: 'flex-end',
   },
   sheet: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0D1F1A',
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     maxHeight: '92%',
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 4,
     borderRadius: 2,
-    backgroundColor: '#D1D5DB',
+    backgroundColor: '#1E3328',
     alignSelf: 'center',
     marginTop: 12,
     marginBottom: 4,
@@ -197,18 +197,18 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     paddingBottom: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#F3F4F6',
+    borderBottomColor: '#1E3328',
   },
   headerTitle: {
     fontSize: 17,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   closeButton: {
     width: 32,
     height: 32,
     borderRadius: 16,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#162820',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -227,19 +227,19 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 12,
     fontWeight: '600',
-    color: '#6B7280',
+    color: '#8BA89E',
     marginBottom: 8,
     letterSpacing: 0.2,
   },
   input: {
     borderWidth: 1.5,
-    borderColor: '#E5E7EB',
+    borderColor: '#1E3328',
     borderRadius: 10,
     paddingHorizontal: 14,
     paddingVertical: 12,
     fontSize: 14,
-    color: '#0A1628',
-    backgroundColor: '#FAFAFA',
+    color: '#FFFFFF',
+    backgroundColor: '#162820',
   },
   textArea: {
     height: 80,
@@ -249,22 +249,22 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: '#E5E7EB',
+    borderColor: '#1E3328',
     borderRadius: 10,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#162820',
     paddingHorizontal: 14,
     height: 48,
   },
   prefix: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#6B7280',
+    color: '#8BA89E',
     marginRight: 6,
   },
   prefixInput: {
     flex: 1,
     fontSize: 14,
-    color: '#0A1628',
+    color: '#FFFFFF',
     height: '100%',
   },
 
@@ -281,41 +281,36 @@ const styles = StyleSheet.create({
     borderWidth: 1.5,
   },
   chipActive: {
-    backgroundColor: '#0A1628',
-    borderColor: '#0A1628',
+    backgroundColor: '#F59E0B',
+    borderColor: '#F59E0B',
   },
   chipInactive: {
-    backgroundColor: '#FFFFFF',
-    borderColor: '#E5E7EB',
+    backgroundColor: '#162820',
+    borderColor: '#1E3328',
   },
   chipText: {
     fontSize: 13,
     fontWeight: '600',
   },
   chipTextActive: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
   },
   chipTextInactive: {
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
 
   // ── Create button ──
   createButton: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     borderRadius: 12,
     height: 52,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 4,
     marginBottom: 14,
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 4,
   },
   createButtonText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 16,
     fontWeight: '700',
   },
@@ -328,6 +323,6 @@ const styles = StyleSheet.create({
   cancelText: {
     fontSize: 14,
     fontWeight: '500',
-    color: '#6B7280',
+    color: '#8BA89E',
   },
 });

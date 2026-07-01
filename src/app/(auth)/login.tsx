@@ -84,11 +84,11 @@ export default function LoginScreen() {
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Phone Number</Text>
               <View style={styles.inputContainer}>
-                <Smartphone size={20} color="#6B7280" style={styles.inputIcon} />
+                <Smartphone size={20} color="#8BA89E" style={styles.inputIcon} />
                 <TextInput
                   style={styles.input}
                   placeholder="000-000-0000"
-                  placeholderTextColor="#9CA3AF"
+                  placeholderTextColor="#8BA89E"
                   keyboardType="phone-pad"
                   value={phone}
                   onChangeText={setPhone}
@@ -100,11 +100,11 @@ export default function LoginScreen() {
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Password</Text>
               <View style={styles.inputContainer}>
-                <Lock size={20} color="#6B7280" style={styles.inputIcon} />
+                <Lock size={20} color="#8BA89E" style={styles.inputIcon} />
                 <TextInput
                   style={styles.input}
                   placeholder="••••••••"
-                  placeholderTextColor="#9CA3AF"
+                  placeholderTextColor="#8BA89E"
                   secureTextEntry={!showPassword}
                   value={password}
                   onChangeText={setPassword}
@@ -115,9 +115,9 @@ export default function LoginScreen() {
                   activeOpacity={0.7}
                 >
                   {showPassword ? (
-                    <EyeOff size={20} color="#6B7280" />
+                    <EyeOff size={20} color="#8BA89E" />
                   ) : (
-                    <Eye size={20} color="#6B7280" />
+                    <Eye size={20} color="#8BA89E" />
                   )}
                 </TouchableOpacity>
               </View>
@@ -156,7 +156,7 @@ export default function LoginScreen() {
 
         {/* SSL Encryption Footer */}
         <View style={styles.footer}>
-          <ShieldCheck size={16} color="#6B7280" style={styles.shieldIcon} />
+          <ShieldCheck size={16} color="#8BA89E" style={styles.shieldIcon} />
           <Text style={styles.footerText}>Bank-grade 256-bit SSL encryption</Text>
         </View>
       </SafeAreaView>
@@ -166,7 +166,7 @@ export default function LoginScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   keyboardView: {
     flex: 1,
@@ -191,31 +191,28 @@ const styles = StyleSheet.create({
   appName: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 4,
   },
   tagline: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#8BA89E',
     textAlign: 'center',
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 16,
     borderLeftWidth: 4,
-    borderLeftColor: '#0D9488',
+    borderLeftColor: '#2ECC71',
     padding: 24,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.05,
-    shadowRadius: 10,
-    elevation: 3,
+    borderWidth: 1,
+    borderColor: '#1E3328',
     marginBottom: 24,
   },
   cardHeading: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 20,
   },
   inputGroup: {
@@ -224,16 +221,16 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 13,
     fontWeight: '500',
-    color: '#6B7280',
+    color: '#8BA89E',
     marginBottom: 6,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#E5E7EB',
+    borderColor: '#1E3328',
     borderRadius: 8,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#162820',
     paddingHorizontal: 12,
     height: 48,
   },
@@ -243,7 +240,7 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     fontSize: 15,
-    color: '#0A1628',
+    color: '#FFFFFF',
     height: '100%',
   },
   eyeButton: {
@@ -256,13 +253,13 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0D9488',
+    color: '#2ECC71',
   },
   errorContainer: {
-    backgroundColor: '#FEF2F2',
+    backgroundColor: '#1E3328',
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#FCA5A5',
+    borderColor: '#DC2626',
     paddingVertical: 8,
     paddingHorizontal: 12,
     marginBottom: 16,
@@ -274,7 +271,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   loginButton: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     height: 48,
     borderRadius: 8,
     flexDirection: 'row',
@@ -282,7 +279,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   loginButtonText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 16,
     fontWeight: '700',
   },
@@ -291,11 +288,11 @@ const styles = StyleSheet.create({
   },
   registerText: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   registerLink: {
     fontWeight: '600',
-    color: '#0D9488',
+    color: '#2ECC71',
   },
   footer: {
     flexDirection: 'row',
@@ -309,6 +306,6 @@ const styles = StyleSheet.create({
   },
   footerText: {
     fontSize: 12,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
 });

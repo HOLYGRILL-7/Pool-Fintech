@@ -26,30 +26,9 @@ export default function RootLayout() {
       <Stack.Screen name="(auth)" />
       <Stack.Screen name="(member)" />
       <Stack.Screen name="(admin)" />
-      <Stack.Screen
-        name="(member)/contribute"
-        options={{
-          presentation: 'modal',
-          animation: 'slide_from_bottom',
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="(admin)/create-group"
-        options={{
-          presentation: 'transparentModal',
-          animation: 'slide_from_bottom',
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="(admin)/group-created"
-        options={{
-          presentation: 'modal',
-          animation: 'slide_from_bottom',
-          headerShown: false,
-        }}
-      />
+      <Stack.Screen name="(member)/contribute" options={{ presentation: 'modal', headerShown: false }} />
+      <Stack.Screen name="(admin)/create-group" options={{ presentation: 'modal', headerShown: false }} />
+      <Stack.Screen name="(admin)/group-created" options={{ presentation: 'modal', headerShown: false }} />
     </Stack>
   );
 }

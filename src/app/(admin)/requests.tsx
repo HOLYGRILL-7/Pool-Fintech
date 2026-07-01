@@ -26,8 +26,8 @@ const MOCK_REQUESTS = [
     time: '2 mins ago',
     status: 'Pending',
     borderColor: '#F59E0B',
-    statusBg: '#FEF3C7',
-    statusColor: '#D97706',
+    statusBg: '#2C2010',
+    statusColor: '#F59E0B',
   },
   {
     id: '2',
@@ -36,9 +36,9 @@ const MOCK_REQUESTS = [
     type: 'Join Group',
     time: 'Yesterday at 4:15 PM',
     status: 'Approved',
-    borderColor: '#0D9488',
-    statusBg: '#D1FAE5',
-    statusColor: '#0D9488',
+    borderColor: '#2ECC71',
+    statusBg: '#1E3328',
+    statusColor: '#2ECC71',
   },
   {
     id: '3',
@@ -48,7 +48,7 @@ const MOCK_REQUESTS = [
     time: 'Oct 12, 10:30 AM',
     status: 'Rejected',
     borderColor: '#DC2626',
-    statusBg: '#FEE2E2',
+    statusBg: '#1E3328',
     statusColor: '#DC2626',
   },
   {
@@ -59,8 +59,8 @@ const MOCK_REQUESTS = [
     time: 'Oct 11, 2:45 PM',
     status: 'Pending',
     borderColor: '#F59E0B',
-    statusBg: '#FEF3C7',
-    statusColor: '#D97706',
+    statusBg: '#2C2010',
+    statusColor: '#F59E0B',
   },
 ];
 
@@ -78,11 +78,11 @@ export default function RequestsScreen() {
       {/* Header Row */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.headerIconButton} activeOpacity={0.7} onPress={() => router.push('/(admin)/dashboard')}>
-          <Menu size={24} color="#0A1628" />
+          <Menu size={24} color="#FFFFFF" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Requests Management</Text>
         <TouchableOpacity style={styles.headerIconButton} activeOpacity={0.7} onPress={() => router.push('/(admin)/profile')}>
-          <UserCircle size={24} color="#0A1628" />
+          <UserCircle size={24} color="#FFFFFF" />
         </TouchableOpacity>
       </View>
 
@@ -179,13 +179,13 @@ export default function RequestsScreen() {
 
                   {/* Time Row */}
                   <View style={styles.timeRow}>
-                    <Clock size={14} color="#6B7280" style={styles.clockIcon} />
+                    <Clock size={14} color="#8BA89E" style={styles.clockIcon} />
                     <Text style={styles.timeText}>{req.time}</Text>
                   </View>
                 </View>
 
                 {/* Right Chevron Arrow */}
-                <ChevronRight size={20} color="#9CA3AF" style={styles.chevron} />
+                <ChevronRight size={20} color="#8BA89E" style={styles.chevron} />
               </View>
             </View>
           ))}
@@ -204,7 +204,7 @@ export default function RequestsScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   header: {
     flexDirection: 'row',
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   headerIconButton: {
     padding: 4,
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   scrollContent: {
     paddingBottom: 40,
@@ -240,20 +240,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   activeChip: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
   },
   inactiveChip: {
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#162820',
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   chipText: {
     fontSize: 14,
     fontWeight: '600',
   },
   activeChipText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
   },
   inactiveChipText: {
-    color: '#475569',
+    color: '#8BA89E',
   },
   statsContainer: {
     flexDirection: 'row',
@@ -263,14 +265,11 @@ const styles = StyleSheet.create({
   },
   statCard: {
     flex: 1,
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     padding: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.02,
-    shadowRadius: 4,
-    elevation: 1,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   yellowLeftBorder: {
     borderLeftWidth: 4,
@@ -278,39 +277,36 @@ const styles = StyleSheet.create({
   },
   greenLeftBorder: {
     borderLeftWidth: 4,
-    borderLeftColor: '#0D9488',
+    borderLeftColor: '#2ECC71',
   },
   statLabel: {
     fontSize: 12,
-    color: '#6B7280',
+    color: '#8BA89E',
     fontWeight: '500',
     marginBottom: 4,
   },
   statValue: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   statValueSub: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginTop: -2,
   },
   listContainer: {
     paddingHorizontal: 16,
   },
   requestCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     borderLeftWidth: 4,
     marginBottom: 12,
     padding: 14,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 6,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   cardMainSection: {
     flexDirection: 'row',
@@ -320,15 +316,17 @@ const styles = StyleSheet.create({
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#162820',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 12,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   avatarText: {
     fontSize: 14,
     fontWeight: '700',
-    color: '#475569',
+    color: '#8BA89E',
   },
   infoContainer: {
     flex: 1,
@@ -343,7 +341,7 @@ const styles = StyleSheet.create({
   memberName: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   statusPill: {
     paddingVertical: 4,
@@ -356,7 +354,7 @@ const styles = StyleSheet.create({
   },
   requestType: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#8BA89E',
     marginBottom: 6,
   },
   timeRow: {
@@ -368,7 +366,7 @@ const styles = StyleSheet.create({
   },
   timeText: {
     fontSize: 12,
-    color: '#9CA3AF',
+    color: '#8BA89E',
   },
   chevron: {
     alignSelf: 'center',
@@ -379,6 +377,6 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
-    color: '#9CA3AF',
+    color: '#8BA89E',
   },
 });

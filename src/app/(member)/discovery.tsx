@@ -27,9 +27,9 @@ const MOCK_GROUPS = [
     description: 'Strategic growth fund focusing on technology and renewable energy startups. Monthly...',
     contribution: '$250/Monthly',
     buttonType: 'join',
-    iconBg: '#D1FAE5',
-    iconColor: '#0D9488',
-    borderColor: '#0D9488',
+    iconBg: '#1E3328',
+    iconColor: '#2ECC71',
+    borderColor: '#2ECC71',
     icon: TrendingUp,
   },
   {
@@ -38,9 +38,9 @@ const MOCK_GROUPS = [
     description: 'A mutual aid group for members of the Unity Parish to support community outreach and...',
     contribution: '$50/Monthly',
     buttonType: 'request',
-    iconBg: '#FEF3C7',
+    iconBg: '#2C2010',
     iconColor: '#F59E0B',
-    borderColor: '#E5E7EB',
+    borderColor: '#F59E0B',
     icon: Users,
   },
   {
@@ -49,9 +49,9 @@ const MOCK_GROUPS = [
     description: 'Collaborative savings to provide medical support and home care services for the elderly...',
     contribution: '$100/Monthly',
     buttonType: 'join',
-    iconBg: '#FEE2E2',
-    iconColor: '#EF4444',
-    borderColor: '#EF4444',
+    iconBg: '#1E3328',
+    iconColor: '#DC2626',
+    borderColor: '#DC2626',
     icon: HeartHandshake,
   },
 ];
@@ -65,22 +65,22 @@ export default function DiscoveryScreen() {
       {/* Header Row */}
       <View style={styles.header}>
         <View style={styles.avatarContainer}>
-          <User size={20} color="#0A1628" />
+          <User size={20} color="#FFFFFF" />
         </View>
         <Text style={styles.headerTitle}>Platform</Text>
         <TouchableOpacity style={styles.bellButton} activeOpacity={0.7}>
-          <Bell size={24} color="#0A1628" />
+          <Bell size={24} color="#FFFFFF" />
         </TouchableOpacity>
       </View>
 
       {/* Search Bar */}
       <View style={styles.searchSection}>
         <View style={styles.searchContainer}>
-          <Search size={20} color="#6B7280" style={styles.searchIcon} />
+          <Search size={20} color="#8BA89E" style={styles.searchIcon} />
           <TextInput
             style={styles.searchInput}
             placeholder="Search for groups, members, or categories"
-            placeholderTextColor="#9CA3AF"
+            placeholderTextColor="#8BA89E"
             value={searchQuery}
             onChangeText={setSearchQuery}
           />
@@ -129,7 +129,7 @@ export default function DiscoveryScreen() {
                   </Text>
                 </View>
                 <TouchableOpacity style={styles.menuButton} activeOpacity={0.7}>
-                  <MoreVertical size={20} color="#6B7280" />
+                  <MoreVertical size={20} color="#8BA89E" />
                 </TouchableOpacity>
               </View>
 
@@ -173,7 +173,7 @@ export default function DiscoveryScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   header: {
     flexDirection: 'row',
@@ -181,13 +181,13 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   avatarContainer: {
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#162820',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   bellButton: {
     padding: 6,
@@ -208,17 +208,12 @@ const styles = StyleSheet.create({
   searchContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: '#1E3328',
     borderRadius: 12,
     paddingHorizontal: 12,
     height: 48,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.03,
-    shadowRadius: 6,
-    elevation: 1,
   },
   searchIcon: {
     marginRight: 8,
@@ -226,12 +221,12 @@ const styles = StyleSheet.create({
   searchInput: {
     flex: 1,
     fontSize: 15,
-    color: '#0A1628',
+    color: '#FFFFFF',
     height: '100%',
   },
   scrollContent: {
     paddingHorizontal: 16,
-    paddingBottom: 100, // Safe padding for FAB
+    paddingBottom: 100,
   },
   sectionContainer: {
     marginBottom: 24,
@@ -239,20 +234,20 @@ const styles = StyleSheet.create({
   sectionHeading: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 12,
   },
   pillContainer: {
     flexDirection: 'row',
   },
   activePill: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     paddingVertical: 8,
     paddingHorizontal: 16,
     borderRadius: 20,
   },
   activePillText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 14,
     fontWeight: '600',
   },
@@ -265,23 +260,20 @@ const styles = StyleSheet.create({
   listHeading: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   listSubheading: {
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   groupCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 16,
     borderLeftWidth: 4,
     padding: 16,
     marginBottom: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.04,
-    shadowRadius: 8,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   cardHeader: {
     flexDirection: 'row',
@@ -305,7 +297,7 @@ const styles = StyleSheet.create({
   groupName: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     flex: 1,
   },
   menuButton: {
@@ -313,13 +305,13 @@ const styles = StyleSheet.create({
   },
   groupDescription: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#8BA89E',
     lineHeight: 20,
     marginBottom: 12,
   },
   divider: {
     height: 1,
-    backgroundColor: '#F3F4F6',
+    backgroundColor: '#1E3328',
     marginBottom: 12,
   },
   contributionSection: {
@@ -328,38 +320,38 @@ const styles = StyleSheet.create({
   contributionLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#9CA3AF',
+    color: '#8BA89E',
     letterSpacing: 0.5,
     marginBottom: 4,
   },
   contributionAmount: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0D9488',
+    color: '#2ECC71',
   },
   joinButton: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     borderRadius: 10,
     height: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },
   joinButtonText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 15,
     fontWeight: '600',
   },
   requestButton: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: '#0A1628',
+    borderColor: '#F59E0B',
     borderRadius: 10,
     height: 44,
     alignItems: 'center',
     justifyContent: 'center',
   },
   requestButtonText: {
-    color: '#0A1628',
+    color: '#F59E0B',
     fontSize: 15,
     fontWeight: '600',
   },
@@ -370,7 +362,7 @@ const styles = StyleSheet.create({
     width: 56,
     height: 56,
     borderRadius: 28,
-    backgroundColor: '#0D9488',
+    backgroundColor: '#F59E0B',
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000',

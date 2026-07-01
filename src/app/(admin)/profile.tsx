@@ -64,19 +64,19 @@ export default function AdminProfileScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" backgroundColor="#F8FAFC" />
+      <StatusBar barStyle="light-content" backgroundColor="#0D1F1A" />
 
       {/* ── Header ── */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.headerButton} onPress={handleBack}>
-          <ArrowLeft size={24} color="#0A1628" />
+          <ArrowLeft size={24} color="#FFFFFF" />
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Profile</Text>
         <TouchableOpacity 
           style={styles.headerButton} 
           onPress={() => handleMenuItemPress('Global System Settings')}
         >
-          <Settings size={24} color="#0A1628" />
+          <Settings size={24} color="#FFFFFF" />
         </TouchableOpacity>
       </View>
 
@@ -115,7 +115,7 @@ export default function AdminProfileScreen() {
           <View style={styles.divider} />
           <View style={styles.statBox}>
             <Text style={styles.statLabel}>System Health</Text>
-            <Text style={[styles.statValue, { color: '#0D9488' }]}>99.9%</Text>
+            <Text style={[styles.statValue, { color: '#2ECC71' }]}>99.9%</Text>
           </View>
         </View>
 
@@ -131,11 +131,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <User size={20} color="#0A1628" />
+                <User size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>Personal Information</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
 
           <View style={styles.menuSeparator} />
@@ -147,11 +147,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <Users size={20} color="#0A1628" />
+                <Users size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>Manage Members</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
 
           <View style={styles.menuSeparator} />
@@ -163,11 +163,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <Shield size={20} color="#0A1628" />
+                <Shield size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>System Configurations</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
         </View>
 
@@ -181,11 +181,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <Lock size={20} color="#0A1628" />
+                <Lock size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>Password & Biometrics</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
 
           <View style={styles.menuSeparator} />
@@ -197,11 +197,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <Smartphone size={20} color="#0A1628" />
+                <Smartphone size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>Two-Factor Authentication</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
         </View>
 
@@ -215,11 +215,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <Bell size={20} color="#0A1628" />
+                <Bell size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>System Notifications</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
 
           <View style={styles.menuSeparator} />
@@ -231,11 +231,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <Palette size={20} color="#0A1628" />
+                <Palette size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>Dashboard Theme</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
         </View>
 
@@ -249,11 +249,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <HelpCircle size={20} color="#0A1628" />
+                <HelpCircle size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>Admin Help Desk</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
 
           <View style={styles.menuSeparator} />
@@ -265,11 +265,11 @@ export default function AdminProfileScreen() {
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
-                <Info size={20} color="#0A1628" />
+                <Info size={20} color="#FFFFFF" />
               </View>
               <Text style={styles.menuText}>System Log Records</Text>
             </View>
-            <ChevronRight size={18} color="#9CA3AF" />
+            <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
         </View>
 
@@ -279,7 +279,7 @@ export default function AdminProfileScreen() {
           activeOpacity={0.8}
           onPress={handleLogout}
         >
-          <LogOut size={20} color="#EF4444" style={styles.logoutIcon} />
+          <LogOut size={20} color="#DC2626" style={styles.logoutIcon} />
           <Text style={styles.logoutText}>Logout</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -290,7 +290,7 @@ export default function AdminProfileScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: '#0D1F1A',
   },
   header: {
     flexDirection: 'row',
@@ -298,9 +298,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 20,
     paddingVertical: 14,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0D1F1A',
     borderBottomWidth: 1,
-    borderBottomColor: '#F1F5F9',
+    borderBottomColor: '#1E3328',
   },
   headerButton: {
     padding: 4,
@@ -308,7 +308,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   scrollContent: {
     paddingBottom: 40,
@@ -316,14 +316,11 @@ const styles = StyleSheet.create({
   profileHero: {
     alignItems: 'center',
     paddingVertical: 24,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderBottomLeftRadius: 24,
     borderBottomRightRadius: 24,
-    shadowColor: '#0F172A',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.03,
-    shadowRadius: 10,
-    elevation: 2,
+    borderBottomWidth: 1,
+    borderBottomColor: '#1E3328',
     marginBottom: 20,
   },
   avatarWrapper: {
@@ -335,29 +332,29 @@ const styles = StyleSheet.create({
     height: 96,
     borderRadius: 48,
     borderWidth: 3,
-    borderColor: '#E2E8F0',
+    borderColor: '#1E3328',
   },
   verifiedBadge: {
     position: 'absolute',
     bottom: 2,
     right: 2,
-    backgroundColor: '#4F46E5', // Indigo badge for Admin
+    backgroundColor: '#F59E0B',
     borderRadius: 12,
     width: 24,
     height: 24,
     justifyContent: 'center',
     alignItems: 'center',
     borderWidth: 2,
-    borderColor: '#FFFFFF',
+    borderColor: '#0D1F1A',
   },
   userName: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 6,
   },
   roleBadge: {
-    backgroundColor: '#EEF2F6',
+    backgroundColor: '#1E3328',
     paddingHorizontal: 12,
     paddingVertical: 4,
     borderRadius: 12,
@@ -365,10 +362,10 @@ const styles = StyleSheet.create({
   roleBadgeText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#4F46E5', // Indigo color for Admin label
+    color: '#F59E0B',
   },
   statsCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 16,
     marginHorizontal: 16,
     paddingVertical: 16,
@@ -376,11 +373,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     marginBottom: 24,
-    shadowColor: '#0F172A',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.04,
-    shadowRadius: 12,
-    elevation: 3,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   statBox: {
     flex: 1,
@@ -388,39 +382,36 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
-    color: '#64748B',
+    color: '#8BA89E',
     marginBottom: 4,
     fontWeight: '500',
   },
   statValue: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   divider: {
     width: 1,
     height: 28,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#1E3328',
   },
   sectionTitle: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#64748B',
+    color: '#8BA89E',
     letterSpacing: 1,
     marginHorizontal: 20,
     marginBottom: 8,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 16,
     marginHorizontal: 16,
     marginBottom: 20,
     paddingVertical: 4,
-    shadowColor: '#0F172A',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.03,
-    shadowRadius: 8,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   menuItem: {
     flexDirection: 'row',
@@ -439,18 +430,18 @@ const styles = StyleSheet.create({
   menuText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   menuSeparator: {
     height: 1,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: '#1E3328',
     marginHorizontal: 16,
   },
   logoutButton: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FEE2E2',
+    backgroundColor: '#1E3328',
     borderRadius: 16,
     marginHorizontal: 16,
     paddingVertical: 16,
@@ -463,6 +454,6 @@ const styles = StyleSheet.create({
   logoutText: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#EF4444',
+    color: '#DC2626',
   },
 });

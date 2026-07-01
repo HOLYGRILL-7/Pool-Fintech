@@ -77,11 +77,11 @@ export default function SignupScreen() {
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Full Name</Text>
               <View style={styles.inputRow}>
-                <User size={18} color="#6B7280" style={styles.inputIcon} />
+                <User size={18} color="#8BA89E" style={styles.inputIcon} />
                 <TextInput
                   style={styles.textInput}
                   placeholder="John Doe"
-                  placeholderTextColor="#9CA3AF"
+                  placeholderTextColor="#8BA89E"
                   autoCapitalize="words"
                   value={name}
                   onChangeText={setName}
@@ -93,11 +93,11 @@ export default function SignupScreen() {
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Email Address</Text>
               <View style={styles.inputRow}>
-                <Mail size={18} color="#6B7280" style={styles.inputIcon} />
+                <Mail size={18} color="#8BA89E" style={styles.inputIcon} />
                 <TextInput
                   style={styles.textInput}
                   placeholder="john@example.com"
-                  placeholderTextColor="#9CA3AF"
+                  placeholderTextColor="#8BA89E"
                   keyboardType="email-address"
                   autoCapitalize="none"
                   value={email}
@@ -110,11 +110,11 @@ export default function SignupScreen() {
             <View style={styles.inputGroup}>
               <Text style={styles.inputLabel}>Password</Text>
               <View style={styles.inputRow}>
-                <Lock size={18} color="#6B7280" style={styles.inputIcon} />
+                <Lock size={18} color="#8BA89E" style={styles.inputIcon} />
                 <TextInput
                   style={styles.textInput}
                   placeholder="••••••••"
-                  placeholderTextColor="#9CA3AF"
+                  placeholderTextColor="#8BA89E"
                   secureTextEntry={!showPassword}
                   value={password}
                   onChangeText={setPassword}
@@ -125,9 +125,9 @@ export default function SignupScreen() {
                   activeOpacity={0.7}
                 >
                   {showPassword ? (
-                    <EyeOff size={18} color="#6B7280" />
+                    <EyeOff size={18} color="#8BA89E" />
                   ) : (
-                    <Eye size={18} color="#6B7280" />
+                    <Eye size={18} color="#8BA89E" />
                   )}
                 </TouchableOpacity>
               </View>
@@ -179,7 +179,7 @@ export default function SignupScreen() {
 
               {/* Apple */}
               <TouchableOpacity style={styles.socialButton} activeOpacity={0.8}>
-                <Grid size={16} color="#0A1628" style={styles.socialIcon} />
+                <Grid size={16} color="#FFFFFF" style={styles.socialIcon} />
                 <Text style={styles.socialLabel}>Apple</Text>
               </TouchableOpacity>
             </View>
@@ -190,7 +190,7 @@ export default function SignupScreen() {
         <View style={styles.tabBar}>
           {/* Register tab — active */}
           <View style={styles.tabActive}>
-            <UserPlus size={18} color="#FFFFFF" />
+            <UserPlus size={18} color="#0D1F1A" />
             <Text style={styles.tabActiveText}>Register</Text>
           </View>
 
@@ -200,7 +200,7 @@ export default function SignupScreen() {
             onPress={handleLoginTab}
             activeOpacity={0.8}
           >
-            <LogIn size={18} color="#6B7280" />
+            <LogIn size={18} color="#8BA89E" />
             <Text style={styles.tabInactiveText}>Login</Text>
           </TouchableOpacity>
         </View>
@@ -214,7 +214,7 @@ export default function SignupScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   keyboardView: {
     flex: 1,
@@ -237,33 +237,30 @@ const styles = StyleSheet.create({
     width: 140,
     height: 90,
     borderRadius: 28,
-    backgroundColor: '#D1D5DB',
+    backgroundColor: '#1E3328',
     opacity: 0.35,
     transform: [{ rotate: '-18deg' }],
   },
   title: {
     fontSize: 36,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 8,
   },
   subtitle: {
     fontSize: 15,
-    color: '#6B7280',
+    color: '#8BA89E',
     lineHeight: 22,
   },
 
   // ── Card ──
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 20,
     marginHorizontal: 16,
     padding: 24,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.07,
-    shadowRadius: 16,
-    elevation: 4,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
 
   // ── Input Fields ──
@@ -273,16 +270,16 @@ const styles = StyleSheet.create({
   inputLabel: {
     fontSize: 13,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 8,
   },
   inputRow: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: '#E5E7EB',
+    borderColor: '#1E3328',
     borderRadius: 10,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#162820',
     paddingHorizontal: 12,
     height: 50,
   },
@@ -292,7 +289,7 @@ const styles = StyleSheet.create({
   textInput: {
     flex: 1,
     fontSize: 15,
-    color: '#0A1628',
+    color: '#FFFFFF',
     height: '100%',
   },
   eyeButton: {
@@ -301,7 +298,7 @@ const styles = StyleSheet.create({
   passwordHelper: {
     marginTop: 6,
     fontSize: 12,
-    color: '#6B7280',
+    color: '#8BA89E',
     lineHeight: 17,
   },
 
@@ -316,7 +313,7 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderWidth: 1.5,
-    borderColor: '#D1D5DB',
+    borderColor: '#1E3328',
     borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
@@ -324,42 +321,37 @@ const styles = StyleSheet.create({
     flexShrink: 0,
   },
   checkboxChecked: {
-    backgroundColor: '#0A1628',
-    borderColor: '#0A1628',
+    backgroundColor: '#F59E0B',
+    borderColor: '#F59E0B',
   },
   checkboxInner: {
     width: 10,
     height: 10,
     borderRadius: 2,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0D1F1A',
   },
   checkboxText: {
     flex: 1,
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
     lineHeight: 20,
   },
   checkboxLink: {
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
 
   // ── Sign Up Button ──
   signUpButton: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     borderRadius: 12,
     height: 52,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.2,
-    shadowRadius: 8,
-    elevation: 4,
   },
   signUpButtonText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 16,
     fontWeight: '700',
   },
@@ -374,12 +366,12 @@ const styles = StyleSheet.create({
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: '#E5E7EB',
+    backgroundColor: '#1E3328',
   },
   dividerText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#9CA3AF',
+    color: '#8BA89E',
     letterSpacing: 0.6,
   },
 
@@ -394,7 +386,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1.5,
-    borderColor: '#E5E7EB',
+    borderColor: '#1E3328',
     borderRadius: 10,
     height: 48,
     gap: 8,
@@ -405,15 +397,15 @@ const styles = StyleSheet.create({
   socialLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
 
   // ── Tab Bar ──
   tabBar: {
     flexDirection: 'row',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#0D1F1A',
     borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
+    borderTopColor: '#1E3328',
     paddingVertical: 12,
     paddingHorizontal: 40,
     alignItems: 'center',
@@ -422,14 +414,14 @@ const styles = StyleSheet.create({
   tabActive: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#0D9488',
+    backgroundColor: '#F59E0B',
     borderRadius: 30,
     paddingVertical: 10,
     paddingHorizontal: 24,
     gap: 8,
   },
   tabActiveText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 14,
     fontWeight: '700',
   },
@@ -441,7 +433,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   tabInactiveText: {
-    color: '#6B7280',
+    color: '#8BA89E',
     fontSize: 14,
     fontWeight: '500',
   },

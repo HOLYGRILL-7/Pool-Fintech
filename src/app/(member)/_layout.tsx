@@ -6,7 +6,9 @@ export default function MemberLayout() {
     <Tabs
       screenOptions={{
         headerShown: false,
-        tabBarActiveTintColor: '#0D9488',
+        tabBarActiveTintColor: '#F59E0B',
+        tabBarInactiveTintColor: '#8BA89E',
+        tabBarStyle: { backgroundColor: '#0D1F1A', borderTopColor: '#1E3328', borderTopWidth: 1 },
       }}
     >
       <Tabs.Screen

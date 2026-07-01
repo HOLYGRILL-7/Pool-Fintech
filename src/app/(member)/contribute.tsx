@@ -66,7 +66,7 @@ export default function ContributeModal() {
             activeOpacity={0.7}
             onPress={() => router.back()}
           >
-            <X size={22} color="#0A1628" />
+            <X size={22} color="#FFFFFF" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Make Contribution</Text>
           {/* Spacer to balance close button */}
@@ -110,7 +110,7 @@ export default function ContributeModal() {
                 >
                   {/* Icon circle */}
                   <View style={styles.methodIconCircle}>
-                    <method.Icon size={22} color="#3B82F6" />
+                    <method.Icon size={22} color="#FFFFFF" />
                   </View>
 
                   {/* Text block */}
@@ -172,15 +172,14 @@ const styles = StyleSheet.create({
   // Dim the screen behind the sheet
   overlay: {
     flex: 1,
-    backgroundColor: 'rgba(0,0,0,0.45)',
+    backgroundColor: 'rgba(0,0,0,0.65)',
     justifyContent: 'flex-end',
   },
   sheet: {
-    backgroundColor: '#F8FAFC',
+    backgroundColor: '#0D1F1A',
     borderTopLeftRadius: 24,
     borderTopRightRadius: 24,
     maxHeight: '92%',
-    // subtle top shadow so sheet feels lifted
     shadowColor: '#000',
     shadowOffset: { width: 0, height: -4 },
     shadowOpacity: 0.12,
@@ -200,7 +199,7 @@ const styles = StyleSheet.create({
     width: 36,
     height: 36,
     borderRadius: 18,
-    backgroundColor: '#F1F5F9',
+    backgroundColor: '#162820',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -209,7 +208,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   headerSpacer: {
     width: 36,
@@ -223,17 +222,14 @@ const styles = StyleSheet.create({
 
   // ── Amount Card ──
   amountCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 14,
     borderLeftWidth: 4,
-    borderLeftColor: '#0A1628',
+    borderLeftColor: '#F59E0B',
     padding: 16,
     marginBottom: 24,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   amountLabelRow: {
     flexDirection: 'row',
@@ -243,7 +239,7 @@ const styles = StyleSheet.create({
   amountLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#6B7280',
+    color: '#8BA89E',
     letterSpacing: 0.6,
   },
   amountValueRow: {
@@ -254,19 +250,19 @@ const styles = StyleSheet.create({
   amountValue: {
     fontSize: 32,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   periodValue: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
 
   // ── Section label ──
   sectionLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#6B7280',
+    color: '#8BA89E',
     letterSpacing: 0.8,
     marginBottom: 12,
   },
@@ -277,7 +273,7 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   methodCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     borderWidth: 1.5,
     padding: 14,
@@ -285,16 +281,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   methodCardActive: {
-    borderColor: '#0A1628',
+    borderColor: '#F59E0B',
   },
   methodCardInactive: {
-    borderColor: '#E5E7EB',
+    borderColor: '#1E3328',
   },
   methodIconCircle: {
     width: 44,
     height: 44,
     borderRadius: 22,
-    backgroundColor: '#EFF6FF',
+    backgroundColor: '#1E3328',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 12,
@@ -305,12 +301,12 @@ const styles = StyleSheet.create({
   methodLabel: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 3,
   },
   methodSubtitle: {
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   // Radio button
   radio: {
@@ -318,25 +314,25 @@ const styles = StyleSheet.create({
     height: 22,
     borderRadius: 11,
     borderWidth: 2,
-    borderColor: '#D1D5DB',
+    borderColor: '#1E3328',
     alignItems: 'center',
     justifyContent: 'center',
     marginLeft: 8,
   },
   radioActive: {
-    borderColor: '#0A1628',
+    borderColor: '#F59E0B',
   },
   radioDot: {
     width: 11,
     height: 11,
     borderRadius: 6,
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
   },
 
   // ── Divider ──
   divider: {
     height: 1,
-    backgroundColor: '#E5E7EB',
+    backgroundColor: '#1E3328',
     marginBottom: 20,
   },
 
@@ -352,17 +348,17 @@ const styles = StyleSheet.create({
   },
   summaryRowLabel: {
     fontSize: 14,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   summaryRowValue: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   summaryRowValueGreen: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0D9488',
+    color: '#2ECC71',
   },
   totalRow: {
     marginTop: 4,
@@ -370,46 +366,41 @@ const styles = StyleSheet.create({
   totalLabel: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   totalValue: {
     fontSize: 26,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
 
   // ── Confirm Button ──
   confirmButton: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     borderRadius: 14,
     height: 54,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 12,
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 4,
   },
   confirmButtonText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 16,
     fontWeight: '700',
   },
 
   // ── Cancel Button ──
   cancelButton: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'transparent',
     borderRadius: 14,
     height: 54,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1.5,
-    borderColor: '#0A1628',
+    borderColor: '#F59E0B',
   },
   cancelButtonText: {
-    color: '#0A1628',
+    color: '#F59E0B',
     fontSize: 16,
     fontWeight: '600',
   },

@@ -58,17 +58,17 @@ export default function RecordsScreen() {
       {/* ── Header ── */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.headerIcon} activeOpacity={0.7} onPress={() => router.push('/(admin)/dashboard')}>
-          <Menu size={24} color="#0A1628" />
+          <Menu size={24} color="#FFFFFF" />
         </TouchableOpacity>
 
         <Text style={styles.headerTitle}>Records</Text>
 
         <View style={styles.headerRight}>
           <TouchableOpacity style={styles.headerIcon} activeOpacity={0.7}>
-            <Bell size={22} color="#0A1628" />
+            <Bell size={22} color="#FFFFFF" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.headerIcon} activeOpacity={0.7} onPress={() => router.push('/(admin)/profile')}>
-            <UserCircle size={26} color="#0A1628" />
+            <UserCircle size={26} color="#FFFFFF" />
           </TouchableOpacity>
         </View>
       </View>
@@ -157,7 +157,7 @@ export default function RecordsScreen() {
                 <View style={styles.cardRight}>
                   <Text style={styles.amountText}>{record.amount}</Text>
                   <View style={styles.paidPill}>
-                    <Receipt size={12} color="#0D9488" style={styles.pillIcon} />
+                    <Receipt size={12} color="#2ECC71" style={styles.pillIcon} />
                     <Text style={styles.paidPillText}>{record.status}</Text>
                   </View>
                 </View>
@@ -173,8 +173,8 @@ export default function RecordsScreen() {
         {/* ── Reports Section ── */}
         <View style={styles.reportsHeader}>
           <View style={styles.reportsHeaderLeft}>
-            <FileText size={20} color="#0A1628" style={styles.reportsIcon} />
-            <SlidersHorizontal size={20} color="#0A1628" />
+            <FileText size={20} color="#FFFFFF" style={styles.reportsIcon} />
+            <SlidersHorizontal size={20} color="#FFFFFF" />
           </View>
           <Text style={styles.reportsTitle}>Reports</Text>
         </View>
@@ -193,7 +193,7 @@ export default function RecordsScreen() {
               }}
             >
               <Text style={styles.reportCardLabel}>{card.label}</Text>
-              <Download size={18} color="#0D9488" />
+              <Download size={18} color="#2ECC71" />
             </TouchableOpacity>
           ))}
         </View>
@@ -208,7 +208,7 @@ const styles = StyleSheet.create({
   // Layout
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   scrollContent: {
     paddingBottom: 48,
@@ -221,14 +221,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   headerTitle: {
     flex: 1,
     textAlign: 'center',
     fontSize: 20,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   headerRight: {
     flexDirection: 'row',
@@ -249,18 +249,15 @@ const styles = StyleSheet.create({
   },
   statCard: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     padding: 16,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   greenLeftBorder: {
     borderLeftWidth: 4,
-    borderLeftColor: '#0D9488',
+    borderLeftColor: '#2ECC71',
   },
   redLeftBorder: {
     borderLeftWidth: 4,
@@ -268,7 +265,7 @@ const styles = StyleSheet.create({
   },
   statLabel: {
     fontSize: 12,
-    color: '#6B7280',
+    color: '#8BA89E',
     fontWeight: '500',
     marginBottom: 6,
   },
@@ -277,7 +274,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
   },
   greenText: {
-    color: '#0D9488',
+    color: '#2ECC71',
   },
   redText: {
     color: '#DC2626',
@@ -286,11 +283,13 @@ const styles = StyleSheet.create({
   // ── Toggle ──
   toggleContainer: {
     flexDirection: 'row',
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#162820',
     borderRadius: 50,
     marginHorizontal: 16,
     marginBottom: 20,
     padding: 4,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   togglePill: {
     flex: 1,
@@ -300,15 +299,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   togglePillActive: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
   },
   toggleText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   toggleTextActive: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
   },
 
   // ── Payment Cards ──
@@ -318,30 +317,29 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   paymentCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     padding: 14,
     flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   avatarCircle: {
     width: 46,
     height: 46,
     borderRadius: 23,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#162820',
     alignItems: 'center',
     justifyContent: 'center',
     marginRight: 12,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   avatarText: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#475569',
+    color: '#8BA89E',
   },
   cardInfo: {
     flex: 1,
@@ -349,12 +347,12 @@ const styles = StyleSheet.create({
   memberName: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 3,
   },
   memberDate: {
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   cardRight: {
     alignItems: 'flex-end',
@@ -363,12 +361,12 @@ const styles = StyleSheet.create({
   amountText: {
     fontSize: 16,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   paidPill: {
     flexDirection: 'row',
     alignItems: 'center',
-    backgroundColor: '#D1FAE5',
+    backgroundColor: '#1E3328',
     borderRadius: 20,
     paddingVertical: 4,
     paddingHorizontal: 10,
@@ -380,7 +378,7 @@ const styles = StyleSheet.create({
   paidPillText: {
     fontSize: 12,
     fontWeight: '700',
-    color: '#0D9488',
+    color: '#2ECC71',
   },
 
   // ── Empty state ──
@@ -390,7 +388,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
-    color: '#9CA3AF',
+    color: '#8BA89E',
   },
 
   // ── Reports ──
@@ -412,7 +410,7 @@ const styles = StyleSheet.create({
   reportsTitle: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   reportsGrid: {
     flexDirection: 'row',
@@ -421,24 +419,20 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   reportCard: {
-    // 2-column: subtract 16px padding each side + 12px gap, divided by 2
     width: '47.5%',
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     paddingVertical: 18,
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   reportCardLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
 });

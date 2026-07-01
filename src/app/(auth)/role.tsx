@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { ShieldCheck, Users, ChevronRight } from 'lucide-react-native';
@@ -12,97 +12,95 @@ export default function RoleScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <ScrollView
-        contentContainerStyle={styles.scrollContent}
-        showsVerticalScrollIndicator={false}
-      >
-        <View style={styles.topContainer}>
-          {/* Top section centered */}
-          <View style={styles.headerSection}>
-            <Image
-              source={require('../../../assets/icon.png')}
-              style={styles.logo}
-              resizeMode="contain"
-            />
-            <Text style={styles.title}>Welcome to Pool</Text>
-            <Text style={styles.subtitle}>Who are you?</Text>
-          </View>
-
-          {/* Large stacked cards */}
-          <View style={styles.cardsContainer}>
-            {/* Admin Card */}
-            <TouchableOpacity
-              style={[styles.card, styles.adminCard]}
-              onPress={() => handleRole('admin')}
-              activeOpacity={0.8}
-            >
-              <View style={styles.cardHeader}>
-                <View style={[styles.iconCircle, styles.adminIconCircle]}>
-                  <ShieldCheck size={24} color="#F59E0B" />
-                </View>
-                <Text style={styles.cardTitle}>Pool Admin</Text>
-              </View>
-              
-              <Text style={styles.cardBodyText}>I create and manage savings pools</Text>
-              
-              <View style={styles.cardFooter}>
-                <Text style={styles.cardFooterText}>Tap to continue</Text>
-                <ChevronRight size={16} color="#F59E0B" />
-              </View>
-            </TouchableOpacity>
-
-            {/* Member Card */}
-            <TouchableOpacity
-              style={[styles.card, styles.memberCard]}
-              onPress={() => handleRole('member')}
-              activeOpacity={0.8}
-            >
-              <View style={styles.cardHeader}>
-                <View style={[styles.iconCircle, styles.memberIconCircle]}>
-                  <Users size={24} color="#0D9488" />
-                </View>
-                <Text style={styles.cardTitle}>Pool Member</Text>
-              </View>
-              
-              <Text style={styles.cardBodyText}>I join and contribute to pools</Text>
-              
-              <View style={styles.cardFooter}>
-                <Text style={styles.cardFooterText}>Tap to continue</Text>
-                <ChevronRight size={16} color="#0D9488" />
-              </View>
-            </TouchableOpacity>
-          </View>
+    <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+      <View style={styles.container}>
+        
+        {/* Top Section */}
+        <View style={styles.topSection}>
+          <Image 
+            source={require('../../../assets/icon.png')} 
+            style={styles.logo} 
+          />
+          <Text style={styles.title}>Welcome to Pool</Text>
+          <Text style={styles.subtitle}>Who are you?</Text>
         </View>
 
-        {/* Bottom text */}
-        <View style={styles.footerSection}>
-          <Text style={styles.footerText}>Pool — Save together. Grow together.</Text>
+        {/* Cards Section */}
+        <View style={styles.cardsSection}>
+          
+          {/* Admin Card */}
+          <TouchableOpacity 
+            style={[styles.card, styles.adminCard]} 
+            onPress={() => handleRole('admin')}
+            activeOpacity={0.8}
+          >
+            <View style={styles.cardHeader}>
+              <View style={[styles.iconCircle, styles.adminIconCircle]}>
+                <ShieldCheck size={24} color="#F59E0B" />
+              </View>
+              <Text style={styles.cardTitle}>Pool Admin</Text>
+            </View>
+            
+            <Text style={styles.cardSubtitle}>
+              I create and manage savings pools
+            </Text>
+            
+            <View style={styles.cardFooter}>
+              <Text style={styles.footerItalicText}>Tap to continue</Text>
+              <ChevronRight size={18} color="#F59E0B" />
+            </View>
+          </TouchableOpacity>
+
+          {/* Member Card */}
+          <TouchableOpacity 
+            style={[styles.card, styles.memberCard]} 
+            onPress={() => handleRole('member')}
+            activeOpacity={0.8}
+          >
+            <View style={styles.cardHeader}>
+              <View style={[styles.iconCircle, styles.memberIconCircle]}>
+                <Users size={24} color="#0D9488" />
+              </View>
+              <Text style={styles.cardTitle}>Pool Member</Text>
+            </View>
+            
+            <Text style={styles.cardSubtitle}>
+              I join and contribute to pools
+            </Text>
+            
+            <View style={styles.cardFooter}>
+              <Text style={styles.footerItalicText}>Tap to continue</Text>
+              <ChevronRight size={18} color="#0D9488" />
+            </View>
+          </TouchableOpacity>
+
         </View>
-      </ScrollView>
+
+        {/* Bottom Section */}
+        <View style={styles.bottomSection}>
+          <Text style={styles.bottomText}>
+            Pool — Save together. Grow together.
+          </Text>
+        </View>
+
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    backgroundColor: '#0D1F1A',
+  },
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
-  },
-  scrollContent: {
-    flexGrow: 1,
     justifyContent: 'space-between',
-    paddingBottom: 24,
+    paddingVertical: 24,
   },
-  topContainer: {
-    flex: 1,
-    justifyContent: 'center',
-    paddingVertical: 16,
-  },
-  headerSection: {
+  topSection: {
     alignItems: 'center',
-    marginBottom: 40,
-    marginTop: 20,
+    marginTop: 40,
   },
   logo: {
     width: 64,
@@ -111,30 +109,26 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   title: {
-    fontSize: 26,
+    fontSize: 28,
     fontWeight: '800',
-    color: '#0A1628',
-    marginBottom: 6,
+    color: '#FFFFFF',
+    marginBottom: 4,
   },
   subtitle: {
     fontSize: 16,
-    color: '#6B7280',
+    color: '#8BA89E',
     fontWeight: '500',
   },
-  cardsContainer: {
-    paddingHorizontal: 24,
+  cardsSection: {
+    marginHorizontal: 24,
     gap: 16,
-    marginBottom: 24,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 16,
     padding: 24,
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.05,
-    shadowRadius: 12,
-    elevation: 3,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   adminCard: {
     borderLeftWidth: 4,
@@ -142,60 +136,56 @@ const styles = StyleSheet.create({
   },
   memberCard: {
     borderLeftWidth: 4,
-    borderLeftColor: '#0D9488',
+    borderLeftColor: '#2ECC71',
   },
   cardHeader: {
     flexDirection: 'row',
     alignItems: 'center',
+    gap: 16,
     marginBottom: 12,
   },
   iconCircle: {
     width: 48,
     height: 48,
     borderRadius: 24,
-    justifyContent: 'center',
     alignItems: 'center',
-    marginRight: 16,
+    justifyContent: 'center',
   },
   adminIconCircle: {
-    backgroundColor: '#FEF3C7',
+    backgroundColor: '#2C2010',
   },
   memberIconCircle: {
-    backgroundColor: '#D1FAE5',
+    backgroundColor: '#1E3328',
   },
   cardTitle: {
     fontSize: 20,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
-  cardBodyText: {
+  cardSubtitle: {
     fontSize: 15,
-    color: '#6B7280',
-    paddingLeft: 64,
-    marginBottom: 4,
-    lineHeight: 20,
+    color: '#8BA89E',
+    lineHeight: 22,
+    marginBottom: 20,
   },
   cardFooter: {
     flexDirection: 'row',
-    alignItems: 'center',
     justifyContent: 'space-between',
-    marginTop: 20,
-    borderTopWidth: 1,
-    borderTopColor: '#F3F4F6',
-    paddingTop: 16,
+    alignItems: 'center',
   },
-  cardFooterText: {
+  footerItalicText: {
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
     fontStyle: 'italic',
   },
-  footerSection: {
+  bottomSection: {
     alignItems: 'center',
-    paddingVertical: 8,
+    marginBottom: 16,
   },
-  footerText: {
+  bottomText: {
     fontSize: 12,
-    color: '#6B7280',
-    textAlign: 'center',
+    color: '#8BA89E',
+    fontWeight: '500',
   },
 });
+

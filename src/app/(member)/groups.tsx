@@ -41,24 +41,24 @@ const MOCK_GROUPS: Group[] = [
     id: '1',
     name: 'Family Savings',
     status: 'Active',
-    statusColor: '#0D9488',
+    statusColor: '#2ECC71',
     members: '5 members',
     detail: 'Next in 4 days',
-    borderColor: '#0D9488',
-    iconBg: '#D1FAE5',
-    iconColor: '#0D9488',
+    borderColor: '#2ECC71',
+    iconBg: '#1E3328',
+    iconColor: '#2ECC71',
     icon: 'Users',
   },
   {
     id: '2',
     name: 'Tech Founders',
     status: 'Active',
-    statusColor: '#0D9488',
+    statusColor: '#2ECC71',
     members: '8 members',
     detail: 'Next in 12 days',
-    borderColor: '#0D9488',
-    iconBg: '#DBEAFE',
-    iconColor: '#2563EB',
+    borderColor: '#2ECC71',
+    iconBg: '#1E3328',
+    iconColor: '#2ECC71',
     icon: 'Briefcase',
   },
   {
@@ -69,7 +69,7 @@ const MOCK_GROUPS: Group[] = [
     members: '4 members',
     detail: 'Awaiting start',
     borderColor: '#F59E0B',
-    iconBg: '#FEF3C7',
+    iconBg: '#2C2010',
     iconColor: '#F59E0B',
     icon: 'Plane',
   },
@@ -81,7 +81,7 @@ const MOCK_GROUPS: Group[] = [
     members: '12 members',
     detail: 'Contribution missed',
     borderColor: '#DC2626',
-    iconBg: '#FEE2E2',
+    iconBg: '#1E3328',
     iconColor: '#DC2626',
     icon: 'HeartHandshake',
   },
@@ -89,12 +89,12 @@ const MOCK_GROUPS: Group[] = [
     id: '5',
     name: 'Education Trust',
     status: 'Active',
-    statusColor: '#0D9488',
+    statusColor: '#2ECC71',
     members: '3 members',
     detail: 'Monthly cycle',
-    borderColor: '#0D9488',
-    iconBg: '#D1FAE5',
-    iconColor: '#0D9488',
+    borderColor: '#2ECC71',
+    iconBg: '#1E3328',
+    iconColor: '#2ECC71',
     icon: 'GraduationCap',
   },
 ];
@@ -126,13 +126,13 @@ export default function MyPoolsScreen() {
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <StatusBar barStyle="dark-content" backgroundColor="#F0F4F8" />
+      <StatusBar barStyle="light-content" backgroundColor="#0D1F1A" />
       
       {/* ── Header ── */}
       <View style={styles.header}>
         <Text style={styles.headerTitle}>My Pools</Text>
         <TouchableOpacity style={styles.bellButton} activeOpacity={0.7}>
-          <Bell size={24} color="#0A1628" />
+          <Bell size={24} color="#FFFFFF" />
         </TouchableOpacity>
       </View>
 
@@ -152,7 +152,7 @@ export default function MyPoolsScreen() {
             <Text style={styles.heroLabel}>TOTAL CONTRIBUTED ACROSS ALL POOLS</Text>
             <Text style={styles.heroAmount}>$12,450.00</Text>
             <View style={styles.trendingRow}>
-              <TrendingUp size={16} color="#0D9488" style={styles.trendingIcon} />
+              <TrendingUp size={16} color="#2ECC71" style={styles.trendingIcon} />
               <Text style={styles.trendingText}>↑ 8.2% from last month</Text>
             </View>
           </View>
@@ -196,7 +196,7 @@ export default function MyPoolsScreen() {
                 </Text>
               </View>
 
-              <ChevronRight size={20} color="#9CA3AF" />
+              <ChevronRight size={20} color="#8BA89E" />
             </TouchableOpacity>
           ))}
         </View>
@@ -210,7 +210,7 @@ export default function MyPoolsScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   header: {
     flexDirection: 'row',
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 28,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   bellButton: {
     padding: 4,
@@ -232,19 +232,15 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   heroCard: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#162820',
     borderRadius: 16,
     marginHorizontal: 16,
     marginVertical: 16,
     padding: 20,
     position: 'relative',
     overflow: 'hidden',
-    // shadow
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.15,
-    shadowRadius: 12,
-    elevation: 4,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   heroBgIcon: {
     position: 'absolute',
@@ -258,7 +254,7 @@ const styles = StyleSheet.create({
   heroLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#94A3B8',
+    color: '#8BA89E',
     letterSpacing: 1,
     marginBottom: 8,
   },
@@ -278,12 +274,12 @@ const styles = StyleSheet.create({
   trendingText: {
     fontSize: 13,
     fontWeight: '600',
-    color: '#0D9488',
+    color: '#2ECC71',
   },
   sectionTitle: {
     fontSize: 18,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginHorizontal: 16,
     marginTop: 8,
     marginBottom: 12,
@@ -292,19 +288,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
   },
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
     flexDirection: 'row',
     alignItems: 'center',
     borderLeftWidth: 4,
-    // shadow
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   iconCircle: {
     width: 44,
@@ -327,7 +319,7 @@ const styles = StyleSheet.create({
   groupName: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     flexShrink: 1,
   },
   statusBadge: {
@@ -350,6 +342,6 @@ const styles = StyleSheet.create({
   },
   metaText: {
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
 });

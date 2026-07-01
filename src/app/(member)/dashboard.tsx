@@ -47,9 +47,9 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     subtitle: 'Paid on Oct 04',
     amount: '$625.00',
     status: 'paid',
-    borderColor: '#0D9488',
-    iconBg: '#D1FAE5',
-    iconColor: '#0D9488',
+    borderColor: '#2ECC71',
+    iconBg: '#1E3328',
+    iconColor: '#2ECC71',
     icon: 'CheckCircle',
   },
   {
@@ -58,9 +58,9 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     subtitle: 'Paid on Oct 11',
     amount: '$625.00',
     status: 'paid',
-    borderColor: '#0D9488',
-    iconBg: '#D1FAE5',
-    iconColor: '#0D9488',
+    borderColor: '#2ECC71',
+    iconBg: '#1E3328',
+    iconColor: '#2ECC71',
     icon: 'CheckCircle',
   },
   {
@@ -70,7 +70,7 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     amount: '$625.00',
     status: 'processing',
     borderColor: '#F59E0B',
-    iconBg: '#FEF3C7',
+    iconBg: '#2C2010',
     iconColor: '#F59E0B',
     icon: 'Clock',
   },
@@ -81,7 +81,7 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     amount: '$625.00',
     status: 'overdue',
     borderColor: '#DC2626',
-    iconBg: '#FEE2E2',
+    iconBg: '#1E3328',
     iconColor: '#DC2626',
     icon: 'XCircle',
   },
@@ -122,17 +122,17 @@ export default function MemberDashboardScreen() {
       {/* ── Header ── */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.headerIcon} activeOpacity={0.7} onPress={() => router.back()}>
-          <ArrowLeft size={24} color="#0A1628" />
+          <ArrowLeft size={24} color="#FFFFFF" />
         </TouchableOpacity>
 
         <Text style={styles.headerTitle}>Contributions</Text>
 
         <View style={styles.headerRight}>
           <TouchableOpacity style={styles.headerIcon} activeOpacity={0.7}>
-            <Bell size={22} color="#0A1628" />
+            <Bell size={22} color="#FFFFFF" />
           </TouchableOpacity>
           <TouchableOpacity style={styles.avatarButton} activeOpacity={0.7} onPress={() => router.push('/(member)/profile')}>
-            <UserCircle size={34} color="#0A1628" />
+            <UserCircle size={34} color="#FFFFFF" />
           </TouchableOpacity>
         </View>
       </View>
@@ -142,7 +142,7 @@ export default function MemberDashboardScreen() {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        {/* ── Dark Navy Hero Card ── */}
+        {/* ── Hero Card ── */}
         <View style={styles.heroCard}>
           <Text style={styles.heroLabel}>ACTIVE GROUP</Text>
           <Text style={styles.heroGroupName}>
@@ -225,7 +225,7 @@ export default function MemberDashboardScreen() {
 
         {/* ── Make Contribution Button ── */}
         <TouchableOpacity style={styles.makeContribBtn} activeOpacity={0.9} onPress={() => router.push('/(member)/contribute' as any)}>
-          <Wallet size={20} color="#FFFFFF" style={styles.walletIcon} />
+          <Wallet size={20} color="#0D1F1A" style={styles.walletIcon} />
           <Text style={styles.makeContribText}>Make Contribution</Text>
         </TouchableOpacity>
 
@@ -233,7 +233,7 @@ export default function MemberDashboardScreen() {
         <View style={styles.txHeader}>
           <Text style={styles.txTitle}>Transaction History</Text>
           <TouchableOpacity activeOpacity={0.7}>
-            <SlidersHorizontal size={20} color="#0A1628" />
+            <SlidersHorizontal size={20} color="#FFFFFF" />
           </TouchableOpacity>
         </View>
 
@@ -244,7 +244,7 @@ export default function MemberDashboardScreen() {
 
       {/* ── Floating "+" Button ── */}
       <TouchableOpacity style={styles.fab} activeOpacity={0.9} onPress={() => router.push('/(member)/discovery')}>
-        <Plus size={26} color="#FFFFFF" />
+        <Plus size={26} color="#0D1F1A" />
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -255,7 +255,7 @@ export default function MemberDashboardScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   scrollContent: {
     paddingBottom: 100,
@@ -266,14 +266,14 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 16,
     paddingVertical: 12,
-    backgroundColor: '#F0F4F8',
+    backgroundColor: '#0D1F1A',
   },
   headerTitle: {
     flex: 1,
     textAlign: 'center',
     fontSize: 20,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   headerRight: {
     flexDirection: 'row',
@@ -287,21 +287,18 @@ const styles = StyleSheet.create({
     padding: 2,
   },
   heroCard: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#162820',
     borderRadius: 16,
     padding: 20,
     marginHorizontal: 16,
     marginBottom: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 6 },
-    shadowOpacity: 0.18,
-    shadowRadius: 14,
-    elevation: 6,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   heroLabel: {
     fontSize: 11,
     fontWeight: '700',
-    color: '#9CA3AF',
+    color: '#8BA89E',
     letterSpacing: 1,
     marginBottom: 6,
   },
@@ -326,7 +323,7 @@ const styles = StyleSheet.create({
   },
   heroStatLabel: {
     fontSize: 12,
-    color: '#9CA3AF',
+    color: '#8BA89E',
     fontWeight: '500',
     marginBottom: 4,
   },
@@ -343,7 +340,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 16,
     borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
+    borderBottomColor: '#1E3328',
   },
   tabItem: {
     marginRight: 28,
@@ -354,10 +351,10 @@ const styles = StyleSheet.create({
   tabText: {
     fontSize: 15,
     fontWeight: '600',
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   tabTextActive: {
-    color: '#0A1628',
+    color: '#FFFFFF',
     fontWeight: '700',
   },
   tabUnderline: {
@@ -366,7 +363,7 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 2,
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     borderRadius: 2,
   },
   listContainer: {
@@ -375,17 +372,14 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   contributionCard: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#162820',
     borderRadius: 12,
     borderLeftWidth: 4,
     padding: 14,
     flexDirection: 'row',
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 6,
-    elevation: 2,
+    borderWidth: 1,
+    borderColor: '#1E3328',
   },
   iconCircle: {
     width: 44,
@@ -401,12 +395,12 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 15,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
     marginBottom: 3,
   },
   cardSubtitle: {
     fontSize: 13,
-    color: '#6B7280',
+    color: '#8BA89E',
   },
   cardSubtitleRed: {
     color: '#DC2626',
@@ -414,10 +408,10 @@ const styles = StyleSheet.create({
   cardAmount: {
     fontSize: 16,
     fontWeight: '700',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   makeContribBtn: {
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     borderRadius: 14,
     height: 54,
     flexDirection: 'row',
@@ -425,17 +419,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 16,
     marginBottom: 28,
-    shadowColor: '#0A1628',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.25,
-    shadowRadius: 8,
-    elevation: 4,
   },
   walletIcon: {
     marginRight: 10,
   },
   makeContribText: {
-    color: '#FFFFFF',
+    color: '#0D1F1A',
     fontSize: 16,
     fontWeight: '700',
   },
@@ -449,7 +438,7 @@ const styles = StyleSheet.create({
   txTitle: {
     fontSize: 18,
     fontWeight: '800',
-    color: '#0A1628',
+    color: '#FFFFFF',
   },
   emptyState: {
     alignItems: 'center',
@@ -457,7 +446,7 @@ const styles = StyleSheet.create({
   },
   emptyText: {
     fontSize: 14,
-    color: '#9CA3AF',
+    color: '#8BA89E',
   },
   fab: {
     position: 'absolute',
@@ -466,7 +455,7 @@ const styles = StyleSheet.create({
     width: 58,
     height: 58,
     borderRadius: 29,
-    backgroundColor: '#0A1628',
+    backgroundColor: '#F59E0B',
     alignItems: 'center',
     justifyContent: 'center',
     shadowColor: '#000',
