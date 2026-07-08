@@ -8,19 +8,33 @@ import '@/global.css';
 import { Platform } from 'react-native';
 
 export const Colors = {
-  light: {
-    text: '#000000',
-    background: '#ffffff',
-    backgroundElement: '#F0F0F3',
-    backgroundSelected: '#E0E1E6',
-    textSecondary: '#60646C',
-  },
   dark: {
-    text: '#ffffff',
-    background: '#000000',
-    backgroundElement: '#212225',
-    backgroundSelected: '#2E3135',
-    textSecondary: '#B0B4BA',
+    background: '#0D1F1A',
+    card: '#162820',
+    border: '#1E3328',
+    primary: '#F59E0B',       // amber — CTAs, highlights, active states
+    secondary: '#2ECC71',     // bright green — amounts, success, paid states
+    textPrimary: '#FFFFFF',
+    textSecondary: '#8BA89E', // muted gray-green
+
+    // Compatibility aliases
+    text: '#FFFFFF',
+    backgroundElement: '#162820',
+    backgroundSelected: '#1E3328',
+  },
+  light: {
+    background: '#F0F4F8',
+    card: '#FFFFFF',
+    border: '#E5E7EB',
+    primary: '#F59E0B',
+    secondary: '#0D9488',
+    textPrimary: '#0A1628',
+    textSecondary: '#6B7280',
+
+    // Compatibility aliases
+    text: '#0A1628',
+    backgroundElement: '#FFFFFF',
+    backgroundSelected: '#E5E7EB',
   },
 } as const;
 

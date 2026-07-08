@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { ShieldCheck, Users, ChevronRight } from 'lucide-react-native';
 
 export default function RoleScreen() {
   const router = useRouter();
+  const [selectedRole, setSelectedRole] = useState<'admin' | 'member'>('admin');
 
   const handleRole = (role: 'admin' | 'member') => {
     router.push({ pathname: '/(auth)/action', params: { role } });
@@ -14,66 +14,50 @@ export default function RoleScreen() {
   return (
     <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
       <View style={styles.container}>
-        
-        {/* Top Section */}
+        {/* Top Illustration Section */}
         <View style={styles.topSection}>
-          <Image 
-            source={require('../../../assets/icon.png')} 
-            style={styles.logo} 
+          <Image
+            source={require('../../../assets/images/role-illustration.png')}
+            style={styles.illustration}
+            resizeMode="contain"
           />
-          <Text style={styles.title}>Welcome to Pool</Text>
-          <Text style={styles.subtitle}>Who are you?</Text>
         </View>
 
-        {/* Cards Section */}
-        <View style={styles.cardsSection}>
-          
-          {/* Admin Card */}
-          <TouchableOpacity 
-            style={[styles.card, styles.adminCard]} 
-            onPress={() => handleRole('admin')}
-            activeOpacity={0.8}
-          >
-            <View style={styles.cardHeader}>
-              <View style={[styles.iconCircle, styles.adminIconCircle]}>
-                <ShieldCheck size={24} color="#F59E0B" />
-              </View>
-              <Text style={styles.cardTitle}>Pool Admin</Text>
-            </View>
-            
-            <Text style={styles.cardSubtitle}>
-              I create and manage savings pools
-            </Text>
-            
-            <View style={styles.cardFooter}>
-              <Text style={styles.footerItalicText}>Tap to continue</Text>
-              <ChevronRight size={18} color="#F59E0B" />
-            </View>
-          </TouchableOpacity>
+        {/* Center content: title and buttons */}
+        <View style={styles.centerSection}>
+          <Text style={styles.title}>Are you an Admin or a Member?</Text>
 
-          {/* Member Card */}
-          <TouchableOpacity 
-            style={[styles.card, styles.memberCard]} 
-            onPress={() => handleRole('member')}
-            activeOpacity={0.8}
-          >
-            <View style={styles.cardHeader}>
-              <View style={[styles.iconCircle, styles.memberIconCircle]}>
-                <Users size={24} color="#0D9488" />
-              </View>
-              <Text style={styles.cardTitle}>Pool Member</Text>
-            </View>
-            
-            <Text style={styles.cardSubtitle}>
-              I join and contribute to pools
-            </Text>
-            
-            <View style={styles.cardFooter}>
-              <Text style={styles.footerItalicText}>Tap to continue</Text>
-              <ChevronRight size={18} color="#0D9488" />
-            </View>
-          </TouchableOpacity>
+          <View style={styles.buttonContainer}>
+            {/* Admin Button */}
+            <TouchableOpacity
+              style={[
+                styles.button,
+                selectedRole === 'admin' ? styles.btnActive : styles.btnInactive,
+              ]}
+              activeOpacity={0.8}
+              onPress={() => {
+                setSelectedRole('admin');
+                handleRole('admin');
+              }}
+            >
+              <Text style={styles.buttonText}>Admin</Text>
+            </TouchableOpacity>
 
+            {/* Member Button */}
+            <TouchableOpacity
+              style={[
+                styles.button,
+                selectedRole === 'member' ? styles.btnActive : styles.btnInactive,
+              ]}
+              activeOpacity={0.8}
+              onPress={() => {
+                setSelectedRole('member');
+                handleRole('member');
+              }}
+            >
+              <Text style={styles.buttonText}>Member</Text>
+            </TouchableOpacity>
+          </View>
         </View>
 
         {/* Bottom Section */}
@@ -82,7 +66,6 @@ export default function RoleScreen() {
             Pool — Save together. Grow together.
           </Text>
         </View>
-
       </View>
     </SafeAreaView>
   );
@@ -91,101 +74,64 @@ export default function RoleScreen() {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    backgroundColor: '#0D1F1A',
+    backgroundColor: '#FEFAE0',
   },
   container: {
     flex: 1,
     justifyContent: 'space-between',
-    paddingVertical: 24,
+    paddingVertical: 40,
   },
   topSection: {
     alignItems: 'center',
-    marginTop: 40,
+    marginTop: 20,
   },
-  logo: {
-    width: 64,
-    height: 64,
-    borderRadius: 12,
-    marginBottom: 16,
+  illustration: {
+    width: '100%',
+    height: 280,
   },
-  title: {
-    fontSize: 28,
-    fontWeight: '800',
-    color: '#FFFFFF',
-    marginBottom: 4,
-  },
-  subtitle: {
-    fontSize: 16,
-    color: '#8BA89E',
-    fontWeight: '500',
-  },
-  cardsSection: {
-    marginHorizontal: 24,
-    gap: 16,
-  },
-  card: {
-    backgroundColor: '#162820',
-    borderRadius: 16,
-    padding: 24,
-    borderWidth: 1,
-    borderColor: '#1E3328',
-  },
-  adminCard: {
-    borderLeftWidth: 4,
-    borderLeftColor: '#F59E0B',
-  },
-  memberCard: {
-    borderLeftWidth: 4,
-    borderLeftColor: '#2ECC71',
-  },
-  cardHeader: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 16,
-    marginBottom: 12,
-  },
-  iconCircle: {
-    width: 48,
-    height: 48,
-    borderRadius: 24,
-    alignItems: 'center',
+  centerSection: {
+    flex: 1,
     justifyContent: 'center',
   },
-  adminIconCircle: {
-    backgroundColor: '#2C2010',
+  title: {
+    fontSize: 24,
+    fontWeight: '800',
+    color: '#283618',
+    textAlign: 'center',
+    marginHorizontal: 24,
+    lineHeight: 32,
   },
-  memberIconCircle: {
-    backgroundColor: '#1E3328',
+  buttonContainer: {
+    marginHorizontal: 24,
+    gap: 12,
+    marginTop: 32,
   },
-  cardTitle: {
-    fontSize: 20,
-    fontWeight: '700',
-    color: '#FFFFFF',
-  },
-  cardSubtitle: {
-    fontSize: 15,
-    color: '#8BA89E',
-    lineHeight: 22,
-    marginBottom: 20,
-  },
-  cardFooter: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  button: {
+    height: 56,
+    borderRadius: 14,
     alignItems: 'center',
+    justifyContent: 'center',
+    width: '100%',
   },
-  footerItalicText: {
-    fontSize: 13,
-    color: '#8BA89E',
-    fontStyle: 'italic',
+  btnActive: {
+    backgroundColor: '#283618',
+  },
+  btnInactive: {
+    backgroundColor: '#606C38',
+  },
+  buttonText: {
+    color: '#FEFAE0',
+    fontWeight: '700',
+    fontSize: 16,
   },
   bottomSection: {
     alignItems: 'center',
-    marginBottom: 16,
+    marginBottom: 24,
   },
   bottomText: {
     fontSize: 12,
-    color: '#8BA89E',
-    fontWeight: '500',
+    color: '#606C38',
+    fontWeight: '600',
+    textAlign: 'center',
   },
 });
-
