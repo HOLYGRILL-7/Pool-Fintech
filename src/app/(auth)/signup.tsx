@@ -8,6 +8,7 @@ import {
   ScrollView,
   KeyboardAvoidingView,
   Platform,
+  StatusBar,
 } from 'react-native';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { SafeAreaView } from 'react-native-safe-area-context';
@@ -17,10 +18,20 @@ import {
   Lock,
   Eye,
   EyeOff,
-  UserPlus,
-  LogIn,
-  Grid,
+  ShieldCheck,
 } from 'lucide-react-native';
+
+// ─── Palette (matching role.tsx + login.tsx warm theme) ───────────────────────
+const C = {
+  bg: '#FEFAE0',
+  pakistanGreen: '#283618',
+  mosGreen: '#606C38',
+  earthYellow: '#DDA15E',
+  tigerEye: '#BC6C25',
+  white: '#FEFAE0',
+  inputBg: '#F5F0DC',
+  border: '#D6CBA8',
+};
 
 // ─── Component ────────────────────────────────────────────────────────────────
 
@@ -49,7 +60,8 @@ export default function SignupScreen() {
   };
 
   return (
-    <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+    <SafeAreaView style={styles.safe} edges={['top', 'bottom']}>
+      <StatusBar barStyle="dark-content" backgroundColor={C.bg} />
       <KeyboardAvoidingView
         style={styles.keyboardView}
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
@@ -59,29 +71,39 @@ export default function SignupScreen() {
           showsVerticalScrollIndicator={false}
           keyboardShouldPersistTaps="handled"
         >
-          {/* ── Top Section ── */}
-          <View style={styles.topSection}>
-            {/* Decorative shape — absolute, top-right */}
-            <View style={styles.decorativeSwirl} />
-
-            <Text style={styles.title}>Create Account</Text>
-            <Text style={styles.subtitle}>
+          {/* ── Header ── */}
+          <View style={styles.headerSection}>
+            <View style={styles.blob1} />
+            <View style={styles.blob2} />
+            <Text style={styles.appName}>Pool</Text>
+            <Text style={styles.heading}>Create Account</Text>
+            <Text style={styles.subheading}>
               Secure your financial future with Pool.
             </Text>
           </View>
 
-          {/* ── White Card ── */}
+          {/* ── Form Card ── */}
           <View style={styles.card}>
+
+            {/* Role badge */}
+            <View style={styles.roleBadge}>
+              <Text style={styles.roleBadgeText}>
+                Registering as{' '}
+                <Text style={styles.roleBadgeRole}>
+                  {role === 'admin' ? 'Admin' : 'Member'}
+                </Text>
+              </Text>
+            </View>
 
             {/* Full Name */}
             <View style={styles.inputGroup}>
-              <Text style={styles.inputLabel}>Full Name</Text>
+              <Text style={styles.label}>Full Name</Text>
               <View style={styles.inputRow}>
-                <User size={18} color="#8BA89E" style={styles.inputIcon} />
+                <User size={18} color={C.mosGreen} style={styles.inputIcon} />
                 <TextInput
-                  style={styles.textInput}
+                  style={styles.input}
                   placeholder="John Doe"
-                  placeholderTextColor="#8BA89E"
+                  placeholderTextColor={C.border}
                   autoCapitalize="words"
                   value={name}
                   onChangeText={setName}
@@ -89,15 +111,15 @@ export default function SignupScreen() {
               </View>
             </View>
 
-            {/* Email Address */}
+            {/* Email */}
             <View style={styles.inputGroup}>
-              <Text style={styles.inputLabel}>Email Address</Text>
+              <Text style={styles.label}>Email Address</Text>
               <View style={styles.inputRow}>
-                <Mail size={18} color="#8BA89E" style={styles.inputIcon} />
+                <Mail size={18} color={C.mosGreen} style={styles.inputIcon} />
                 <TextInput
-                  style={styles.textInput}
+                  style={styles.input}
                   placeholder="john@example.com"
-                  placeholderTextColor="#8BA89E"
+                  placeholderTextColor={C.border}
                   keyboardType="email-address"
                   autoCapitalize="none"
                   value={email}
@@ -108,26 +130,26 @@ export default function SignupScreen() {
 
             {/* Password */}
             <View style={styles.inputGroup}>
-              <Text style={styles.inputLabel}>Password</Text>
+              <Text style={styles.label}>Password</Text>
               <View style={styles.inputRow}>
-                <Lock size={18} color="#8BA89E" style={styles.inputIcon} />
+                <Lock size={18} color={C.mosGreen} style={styles.inputIcon} />
                 <TextInput
-                  style={styles.textInput}
+                  style={styles.input}
                   placeholder="••••••••"
-                  placeholderTextColor="#8BA89E"
+                  placeholderTextColor={C.border}
                   secureTextEntry={!showPassword}
                   value={password}
                   onChangeText={setPassword}
                 />
                 <TouchableOpacity
                   onPress={() => setShowPassword(!showPassword)}
-                  style={styles.eyeButton}
+                  style={styles.eyeBtn}
                   activeOpacity={0.7}
                 >
                   {showPassword ? (
-                    <EyeOff size={18} color="#8BA89E" />
+                    <EyeOff size={18} color={C.mosGreen} />
                   ) : (
-                    <Eye size={18} color="#8BA89E" />
+                    <Eye size={18} color={C.mosGreen} />
                   )}
                 </TouchableOpacity>
               </View>
@@ -149,18 +171,17 @@ export default function SignupScreen() {
                 I agree to the{' '}
                 <Text style={styles.checkboxLink}>Terms of Service</Text>
                 {' '}and{' '}
-                <Text style={styles.checkboxLink}>Privacy Policy</Text>
-                .
+                <Text style={styles.checkboxLink}>Privacy Policy</Text>.
               </Text>
             </TouchableOpacity>
 
             {/* Sign Up Button */}
             <TouchableOpacity
-              style={styles.signUpButton}
+              style={styles.signUpBtn}
               onPress={handleSignUp}
-              activeOpacity={0.9}
+              activeOpacity={0.85}
             >
-              <Text style={styles.signUpButtonText}>Sign Up →</Text>
+              <Text style={styles.signUpBtnText}>Create Account →</Text>
             </TouchableOpacity>
 
             {/* Divider */}
@@ -172,38 +193,29 @@ export default function SignupScreen() {
 
             {/* Social Buttons */}
             <View style={styles.socialRow}>
-              {/* Google */}
-              <TouchableOpacity style={styles.socialButton} activeOpacity={0.8}>
+              <TouchableOpacity style={styles.socialBtn} activeOpacity={0.8}>
                 <Text style={styles.socialLabel}>Google</Text>
               </TouchableOpacity>
-
-              {/* Apple */}
-              <TouchableOpacity style={styles.socialButton} activeOpacity={0.8}>
-                <Grid size={16} color="#FFFFFF" style={styles.socialIcon} />
+              <TouchableOpacity style={styles.socialBtn} activeOpacity={0.8}>
                 <Text style={styles.socialLabel}>Apple</Text>
               </TouchableOpacity>
             </View>
           </View>
-        </ScrollView>
 
-        {/* ── Bottom Tab Bar ── */}
-        <View style={styles.tabBar}>
-          {/* Register tab — active */}
-          <View style={styles.tabActive}>
-            <UserPlus size={18} color="#0D1F1A" />
-            <Text style={styles.tabActiveText}>Register</Text>
+          {/* ── Already have an account ── */}
+          <View style={styles.loginRow}>
+            <Text style={styles.loginText}>Already have an account? </Text>
+            <TouchableOpacity onPress={handleLoginTab} activeOpacity={0.7}>
+              <Text style={styles.loginLink}>Log In</Text>
+            </TouchableOpacity>
           </View>
 
-          {/* Login tab — inactive */}
-          <TouchableOpacity
-            style={styles.tabInactive}
-            onPress={handleLoginTab}
-            activeOpacity={0.8}
-          >
-            <LogIn size={18} color="#8BA89E" />
-            <Text style={styles.tabInactiveText}>Login</Text>
-          </TouchableOpacity>
-        </View>
+          {/* ── Footer ── */}
+          <View style={styles.footer}>
+            <ShieldCheck size={14} color={C.mosGreen} style={{ marginRight: 6 }} />
+            <Text style={styles.footerText}>Bank-grade 256-bit SSL encryption</Text>
+          </View>
+        </ScrollView>
       </KeyboardAvoidingView>
     </SafeAreaView>
   );
@@ -212,93 +224,134 @@ export default function SignupScreen() {
 // ─── Styles ───────────────────────────────────────────────────────────────────
 
 const styles = StyleSheet.create({
-  safeArea: {
+  safe: {
     flex: 1,
-    backgroundColor: '#0D1F1A',
+    backgroundColor: C.bg,
   },
   keyboardView: {
     flex: 1,
   },
   scrollContent: {
-    paddingBottom: 24,
+    paddingBottom: 32,
   },
 
-  // ── Top Section ──
-  topSection: {
-    paddingHorizontal: 24,
-    paddingTop: 32,
+  // ── Header ──
+  headerSection: {
+    paddingHorizontal: 28,
+    paddingTop: 36,
     paddingBottom: 28,
     overflow: 'hidden',
   },
-  decorativeSwirl: {
+  blob1: {
     position: 'absolute',
     top: -20,
     right: -30,
     width: 140,
-    height: 90,
-    borderRadius: 28,
-    backgroundColor: '#1E3328',
-    opacity: 0.35,
-    transform: [{ rotate: '-18deg' }],
+    height: 140,
+    borderRadius: 70,
+    backgroundColor: C.earthYellow,
+    opacity: 0.15,
   },
-  title: {
-    fontSize: 36,
+  blob2: {
+    position: 'absolute',
+    top: 40,
+    right: 30,
+    width: 70,
+    height: 70,
+    borderRadius: 35,
+    backgroundColor: C.mosGreen,
+    opacity: 0.1,
+  },
+  appName: {
+    fontSize: 13,
     fontWeight: '800',
-    color: '#FFFFFF',
-    marginBottom: 8,
+    color: C.mosGreen,
+    letterSpacing: 3,
+    textTransform: 'uppercase',
+    marginBottom: 14,
   },
-  subtitle: {
-    fontSize: 15,
-    color: '#8BA89E',
-    lineHeight: 22,
+  heading: {
+    fontSize: 30,
+    fontWeight: '800',
+    color: C.pakistanGreen,
+    marginBottom: 6,
+  },
+  subheading: {
+    fontSize: 14,
+    color: C.mosGreen,
+    lineHeight: 20,
   },
 
   // ── Card ──
   card: {
-    backgroundColor: '#162820',
-    borderRadius: 20,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 24,
     marginHorizontal: 16,
     padding: 24,
+    shadowColor: C.pakistanGreen,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 16,
+    elevation: 4,
+  },
+  roleBadge: {
+    backgroundColor: '#F5F8F0',
+    borderRadius: 8,
+    paddingVertical: 6,
+    paddingHorizontal: 12,
+    alignSelf: 'flex-start',
+    marginBottom: 20,
     borderWidth: 1,
-    borderColor: '#1E3328',
+    borderColor: '#D8E4C8',
+  },
+  roleBadgeText: {
+    fontSize: 12,
+    color: C.mosGreen,
+    fontWeight: '500',
+  },
+  roleBadgeRole: {
+    fontWeight: '800',
+    color: C.pakistanGreen,
   },
 
-  // ── Input Fields ──
+  // ── Inputs ──
   inputGroup: {
-    marginBottom: 18,
+    marginBottom: 16,
   },
-  inputLabel: {
-    fontSize: 13,
+  label: {
+    fontSize: 12,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: C.pakistanGreen,
     marginBottom: 8,
+    letterSpacing: 0.3,
+    textTransform: 'uppercase',
   },
   inputRow: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1.5,
-    borderColor: '#1E3328',
-    borderRadius: 10,
-    backgroundColor: '#162820',
-    paddingHorizontal: 12,
-    height: 50,
+    borderColor: C.border,
+    borderRadius: 12,
+    backgroundColor: C.inputBg,
+    paddingHorizontal: 14,
+    height: 52,
   },
   inputIcon: {
     marginRight: 10,
   },
-  textInput: {
+  input: {
     flex: 1,
     fontSize: 15,
-    color: '#FFFFFF',
+    color: C.pakistanGreen,
     height: '100%',
   },
-  eyeButton: {
+  eyeBtn: {
     padding: 6,
   },
   passwordHelper: {
     marginTop: 6,
     fontSize: 12,
-    color: '#8BA89E',
+    color: C.mosGreen,
     lineHeight: 17,
   },
 
@@ -313,47 +366,48 @@ const styles = StyleSheet.create({
     width: 20,
     height: 20,
     borderWidth: 1.5,
-    borderColor: '#1E3328',
-    borderRadius: 4,
+    borderColor: C.border,
+    borderRadius: 5,
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 1,
     flexShrink: 0,
   },
   checkboxChecked: {
-    backgroundColor: '#F59E0B',
-    borderColor: '#F59E0B',
+    backgroundColor: C.pakistanGreen,
+    borderColor: C.pakistanGreen,
   },
   checkboxInner: {
     width: 10,
     height: 10,
     borderRadius: 2,
-    backgroundColor: '#0D1F1A',
+    backgroundColor: C.bg,
   },
   checkboxText: {
     flex: 1,
     fontSize: 13,
-    color: '#8BA89E',
+    color: C.mosGreen,
     lineHeight: 20,
   },
   checkboxLink: {
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: C.pakistanGreen,
   },
 
-  // ── Sign Up Button ──
-  signUpButton: {
-    backgroundColor: '#F59E0B',
-    borderRadius: 12,
-    height: 52,
+  // ── Sign Up button ──
+  signUpBtn: {
+    backgroundColor: C.pakistanGreen,
+    borderRadius: 14,
+    height: 54,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 20,
   },
-  signUpButtonText: {
-    color: '#0D1F1A',
+  signUpBtnText: {
+    color: C.bg,
     fontSize: 16,
-    fontWeight: '700',
+    fontWeight: '800',
+    letterSpacing: 0.3,
   },
 
   // ── Divider ──
@@ -366,75 +420,67 @@ const styles = StyleSheet.create({
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: '#1E3328',
+    backgroundColor: C.border,
   },
   dividerText: {
     fontSize: 11,
     fontWeight: '600',
-    color: '#8BA89E',
-    letterSpacing: 0.6,
+    color: C.mosGreen,
+    letterSpacing: 0.5,
   },
 
-  // ── Social Buttons ──
+  // ── Social buttons ──
   socialRow: {
     flexDirection: 'row',
     gap: 12,
   },
-  socialButton: {
+  socialBtn: {
     flex: 1,
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1.5,
-    borderColor: '#1E3328',
-    borderRadius: 10,
+    borderColor: C.border,
+    borderRadius: 12,
     height: 48,
-    gap: 8,
-  },
-  socialIcon: {
-    // spacing handled by gap
   },
   socialLabel: {
     fontSize: 14,
     fontWeight: '600',
-    color: '#FFFFFF',
+    color: C.pakistanGreen,
   },
 
-  // ── Tab Bar ──
-  tabBar: {
+  // ── Already have account ──
+  loginRow: {
     flexDirection: 'row',
-    backgroundColor: '#0D1F1A',
-    borderTopWidth: 1,
-    borderTopColor: '#1E3328',
-    paddingVertical: 12,
-    paddingHorizontal: 40,
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'space-around',
+    marginTop: 20,
   },
-  tabActive: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#F59E0B',
-    borderRadius: 30,
-    paddingVertical: 10,
-    paddingHorizontal: 24,
-    gap: 8,
+  loginText: {
+    fontSize: 14,
+    color: C.mosGreen,
   },
-  tabActiveText: {
-    color: '#0D1F1A',
+  loginLink: {
     fontSize: 14,
     fontWeight: '700',
+    color: C.pakistanGreen,
+    textDecorationLine: 'underline',
   },
-  tabInactive: {
+
+  // ── Footer ──
+  footer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    paddingVertical: 10,
-    paddingHorizontal: 16,
+    justifyContent: 'center',
+    marginTop: 20,
+    paddingVertical: 12,
+    borderTopWidth: 1,
+    borderTopColor: '#E8E2CA',
+    marginHorizontal: 16,
+    borderRadius: 8,
   },
-  tabInactiveText: {
-    color: '#8BA89E',
-    fontSize: 14,
-    fontWeight: '500',
+  footerText: {
+    fontSize: 12,
+    color: C.mosGreen,
   },
 });

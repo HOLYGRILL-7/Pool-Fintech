@@ -8,7 +8,7 @@ export default function RoleScreen() {
   const [selectedRole, setSelectedRole] = useState<'admin' | 'member'>('admin');
 
   const handleRole = (role: 'admin' | 'member') => {
-    router.push({ pathname: '/(auth)/action', params: { role } });
+    router.push({ pathname: '/(auth)/login', params: { role } });
   };
 
   return (
