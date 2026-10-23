@@ -133,7 +133,7 @@ export default function RequestsScreen() {
 
           {/* Card 2: Today's Goal */}
           <View style={[styles.statCard, styles.greenLeftBorder]}>
-            <Text style={styles.statLabel}>Today's Goal</Text>
+            <Text style={styles.statLabel}>Today&apos;s Goal</Text>
             <Text style={styles.statValue}>85%</Text>
             <Text style={styles.statValueSub}>Processed</Text>
           </View>

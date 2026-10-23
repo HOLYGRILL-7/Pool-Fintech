@@ -14,7 +14,6 @@ import {
   Bell,
   Search,
   MoreVertical,
-  Plus,
   TrendingUp,
   HeartHandshake,
   Users,
