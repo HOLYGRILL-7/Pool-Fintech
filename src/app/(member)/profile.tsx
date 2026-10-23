@@ -244,13 +244,13 @@ export default function MemberProfileScreen() {
           <TouchableOpacity
             style={styles.menuItem}
             activeOpacity={0.7}
-            onPress={() => handleMenuItemPress('About Kinship Finance')}
+            onPress={() => handleMenuItemPress('About PoolUp')}
           >
             <View style={styles.menuLeft}>
               <View style={styles.iconContainer}>
                 <Info size={20} color="#FFFFFF" />
               </View>
-              <Text style={styles.menuText}>About Kinship Finance</Text>
+              <Text style={styles.menuText}>About PoolUp</Text>
             </View>
             <ChevronRight size={18} color="#8BA89E" />
           </TouchableOpacity>
