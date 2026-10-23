@@ -85,17 +85,14 @@ None are needed yet. The app doesn't connect to any external services.
 
 ```
 src/
-├── app/                 # Expo Router routes
-│   ├── _layout.tsx      # Root stack + splash screen
-│   ├── index.tsx        # Redirects to role selection
-│   ├── (auth)/          # role, login, signup
-│   ├── (admin)/         # Admin tabs: dashboard, requests, records, profile
-│   │                    #   + create-group, group-created modals
-│   └── (member)/        # Member tabs: groups, dashboard, discovery, profile
-│                        #   + contribute modal
-├── components/          # Shared UI components
-├── constants/           # Theme constants
-└── hooks/               # Color scheme / theme hooks
+└── app/                 # Expo Router routes
+    ├── _layout.tsx      # Root stack + splash screen
+    ├── index.tsx        # Redirects to role selection
+    ├── (auth)/          # role, login, signup
+    ├── (admin)/         # Admin tabs: dashboard, requests, records, profile
+    │                    #   + create-group, group-created modals
+    └── (member)/        # Member tabs: groups, dashboard, discovery, profile
+                         #   + contribute modal
 assets/                  # App icon, splash and images
 ```
 
