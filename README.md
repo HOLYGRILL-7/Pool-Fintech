@@ -4,11 +4,13 @@ A mobile app for group savings (savings circles): admins create and manage contr
 
 > **Note:** PoolUp is currently a front-end prototype. All screens run on mock data. There is no backend, real authentication or payment processing yet.
 
+<!-- Screenshots: uncomment once images are added to docs/
 ## Screenshots
 
 | | | |
 |---|---|---|
 | ![Screen](docs/screenshot-1.png) | ![Screen](docs/screenshot-2.png) | ![Screen](docs/screenshot-3.png) |
+-->
 
 ## Features
 
