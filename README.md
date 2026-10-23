@@ -106,3 +106,7 @@ assets/                  # App icon, splash and images
 ## Author
 
 **Bismark Jones-Oduro** · GitHub: [HOLYGRILL-7](https://github.com/HOLYGRILL-7)
+
+## License
+
+[MIT](LICENSE) © 2026 Bismark Jones-Oduro
