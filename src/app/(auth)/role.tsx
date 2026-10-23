@@ -63,7 +63,7 @@ export default function RoleScreen() {
         {/* Bottom Section */}
         <View style={styles.bottomSection}>
           <Text style={styles.bottomText}>
-            Pool — Save together. Grow together.
+            PoolUp — Save together. Grow together.
           </Text>
         </View>
       </View>

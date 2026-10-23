@@ -75,10 +75,10 @@ export default function SignupScreen() {
           <View style={styles.headerSection}>
             <View style={styles.blob1} />
             <View style={styles.blob2} />
-            <Text style={styles.appName}>Pool</Text>
+            <Text style={styles.appName}>PoolUp</Text>
             <Text style={styles.heading}>Create Account</Text>
             <Text style={styles.subheading}>
-              Secure your financial future with Pool.
+              Secure your financial future with PoolUp.
             </Text>
           </View>
 

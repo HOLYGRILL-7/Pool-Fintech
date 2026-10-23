@@ -146,7 +146,7 @@ export default function AdminDashboardScreen() {
           </View>
           <View>
             <Text style={styles.headerGreeting}>Good morning 👋</Text>
-            <Text style={styles.headerName}>Pool Admin</Text>
+            <Text style={styles.headerName}>PoolUp Admin</Text>
           </View>
         </View>
 

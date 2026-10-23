@@ -1,8 +1,8 @@
-# Pool
+# PoolUp
 
 A mobile app for group savings (savings circles): admins create and manage contribution pools, and members join pools, track what they've paid and make contributions.
 
-> **Note:** Pool is currently a front-end prototype. All screens run on mock data. There is no backend, real authentication or payment processing yet.
+> **Note:** PoolUp is currently a front-end prototype. All screens run on mock data. There is no backend, real authentication or payment processing yet.
 
 ## Screenshots
 

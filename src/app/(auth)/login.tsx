@@ -77,7 +77,7 @@ export default function LoginScreen() {
             {/* Decorative blobs */}
             <View style={styles.blob1} />
             <View style={styles.blob2} />
-            <Text style={styles.appName}>Pool</Text>
+            <Text style={styles.appName}>PoolUp</Text>
             <Text style={styles.heading}>Welcome back</Text>
             <Text style={styles.subheading}>
               Sign in to continue managing your savings pools.
@@ -168,7 +168,7 @@ export default function LoginScreen() {
 
           {/* ── Register link ── */}
           <View style={styles.registerRow}>
-            <Text style={styles.registerText}>New to Pool? </Text>
+            <Text style={styles.registerText}>New to PoolUp? </Text>
             <TouchableOpacity onPress={handleRegister} activeOpacity={0.7}>
               <Text style={styles.registerLink}>Register Account</Text>
             </TouchableOpacity>
