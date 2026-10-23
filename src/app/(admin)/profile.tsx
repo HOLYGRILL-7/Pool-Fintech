@@ -110,7 +110,7 @@ export default function AdminProfileScreen() {
           <View style={styles.divider} />
           <View style={styles.statBox}>
             <Text style={styles.statLabel}>Total Volume</Text>
-            <Text style={styles.statValue}>$124.5k</Text>
+            <Text style={styles.statValue}>GH₵124.5k</Text>
           </View>
           <View style={styles.divider} />
           <View style={styles.statBox}>

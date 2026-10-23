@@ -21,9 +21,9 @@ import {
 // ─── Mock Data ───────────────────────────────────────────────────────────────
 
 const MOCK_RECORDS = [
-  { id: '1', name: 'Marcus Chen',  date: 'Oct 24, 2023', amount: '$500.00',  status: 'Paid' },
-  { id: '2', name: 'Sarah Jenkins', date: 'Oct 23, 2023', amount: '$750.00',  status: 'Paid' },
-  { id: '3', name: 'David Wilson',  date: 'Oct 22, 2023', amount: '$500.00',  status: 'Paid' },
+  { id: '1', name: 'Marcus Chen',  date: 'Oct 24, 2023', amount: 'GH₵500.00',  status: 'Paid' },
+  { id: '2', name: 'Sarah Jenkins', date: 'Oct 23, 2023', amount: 'GH₵750.00',  status: 'Paid' },
+  { id: '3', name: 'David Wilson',  date: 'Oct 22, 2023', amount: 'GH₵500.00',  status: 'Paid' },
 ];
 
 const REPORT_CARDS = [
@@ -83,13 +83,13 @@ export default function RecordsScreen() {
           {/* Total Collected */}
           <View style={[styles.statCard, styles.greenLeftBorder]}>
             <Text style={styles.statLabel}>Total Collected</Text>
-            <Text style={[styles.statAmount, styles.greenText]}>$12,450.00</Text>
+            <Text style={[styles.statAmount, styles.greenText]}>GH₵12,450.00</Text>
           </View>
 
           {/* Remaining */}
           <View style={[styles.statCard, styles.redLeftBorder]}>
             <Text style={styles.statLabel}>Remaining</Text>
-            <Text style={[styles.statAmount, styles.redText]}>$3,200.00</Text>
+            <Text style={[styles.statAmount, styles.redText]}>GH₵3,200.00</Text>
           </View>
         </View>
 

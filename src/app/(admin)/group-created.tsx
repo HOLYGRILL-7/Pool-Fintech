@@ -86,7 +86,7 @@ export default function GroupCreatedScreen() {
           <View style={styles.detailsRow}>
             <View style={styles.detailCol}>
               <Text style={styles.cardLabel}>Monthly Target</Text>
-              <Text style={styles.detailValue}>$2,500.00</Text>
+              <Text style={styles.detailValue}>GH₵2,500.00</Text>
             </View>
             <View style={[styles.detailCol, styles.alignRight]}>
               <Text style={[styles.cardLabel, styles.alignRightText]}>Category</Text>

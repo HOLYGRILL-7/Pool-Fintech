@@ -109,7 +109,7 @@ export default function MemberProfileScreen() {
           <View style={styles.divider} />
           <View style={styles.statBox}>
             <Text style={styles.statLabel}>Savings</Text>
-            <Text style={styles.statValue}>$4.2k</Text>
+            <Text style={styles.statValue}>GH₵4.2k</Text>
           </View>
           <View style={styles.divider} />
           <View style={styles.statBox}>

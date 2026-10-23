@@ -86,7 +86,7 @@ export default function ContributeModal() {
             </View>
             {/* Values row */}
             <View style={styles.amountValueRow}>
-              <Text style={styles.amountValue}>$625.00</Text>
+              <Text style={styles.amountValue}>GH₵625.00</Text>
               <Text style={styles.periodValue}>October Week 3</Text>
             </View>
           </View>
@@ -135,15 +135,15 @@ export default function ContributeModal() {
           <View style={styles.summaryContainer}>
             <View style={styles.summaryRow}>
               <Text style={styles.summaryRowLabel}>Contribution Amount</Text>
-              <Text style={styles.summaryRowValue}>$625.00</Text>
+              <Text style={styles.summaryRowValue}>GH₵625.00</Text>
             </View>
             <View style={styles.summaryRow}>
               <Text style={styles.summaryRowLabel}>Service Fee (0%)</Text>
-              <Text style={styles.summaryRowValueGreen}>$0.00</Text>
+              <Text style={styles.summaryRowValueGreen}>GH₵0.00</Text>
             </View>
             <View style={[styles.summaryRow, styles.totalRow]}>
               <Text style={styles.totalLabel}>Total to Pay</Text>
-              <Text style={styles.totalValue}>$625.00</Text>
+              <Text style={styles.totalValue}>GH₵625.00</Text>
             </View>
           </View>
 

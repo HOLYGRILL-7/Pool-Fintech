@@ -150,7 +150,7 @@ export default function MyPoolsScreen() {
           />
           <View style={styles.heroContent}>
             <Text style={styles.heroLabel}>TOTAL CONTRIBUTED ACROSS ALL POOLS</Text>
-            <Text style={styles.heroAmount}>$12,450.00</Text>
+            <Text style={styles.heroAmount}>GH₵12,450.00</Text>
             <View style={styles.trendingRow}>
               <TrendingUp size={16} color="#2ECC71" style={styles.trendingIcon} />
               <Text style={styles.trendingText}>↑ 8.2% from last month</Text>

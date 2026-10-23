@@ -87,7 +87,7 @@ export default function CreateGroupModal() {
             <View style={styles.inputGroup}>
               <Text style={styles.label}>Monthly Contribution Target</Text>
               <View style={styles.prefixInputRow}>
-                <Text style={styles.prefix}>$</Text>
+                <Text style={styles.prefix}>GH₵</Text>
                 <TextInput
                   style={styles.prefixInput}
                   placeholder="0.00"

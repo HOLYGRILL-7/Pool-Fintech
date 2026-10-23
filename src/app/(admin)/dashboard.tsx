@@ -85,7 +85,7 @@ const ACTIVITIES: Activity[] = [
     icon: 'wallet',
     label: 'Contribution Received',
     sub: 'Sarah · Tech Founders',
-    amount: '+$500',
+    amount: '+GH₵500',
     amountPositive: true,
     time: '2h ago',
   },
@@ -101,7 +101,7 @@ const ACTIVITIES: Activity[] = [
     icon: 'arrowdown',
     label: 'Payout Sent',
     sub: 'Marcus · Founders Ring',
-    amount: '-$1,200',
+    amount: '-GH₵1,200',
     amountPositive: false,
     time: '2 days ago',
   },
@@ -167,7 +167,7 @@ export default function AdminDashboardScreen() {
           <View style={styles.heroBlob2} />
 
           <Text style={styles.heroEyebrow}>TOTAL POOL VALUE</Text>
-          <Text style={styles.heroAmount}>$12,450.00</Text>
+          <Text style={styles.heroAmount}>GH₵12,450.00</Text>
 
           <View style={styles.heroRow}>
             <View style={styles.heroTrend}>
@@ -203,7 +203,7 @@ export default function AdminDashboardScreen() {
             <View style={[styles.kpiIconWrap, { backgroundColor: '#1A3D2A' }]}>
               <Wallet size={16} color="#2ECC71" />
             </View>
-            <Text style={styles.kpiValue}>$3,210</Text>
+            <Text style={styles.kpiValue}>GH₵3,210</Text>
             <Text style={styles.kpiLabel}>Balance</Text>
           </View>
 

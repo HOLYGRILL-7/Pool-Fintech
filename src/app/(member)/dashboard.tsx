@@ -45,7 +45,7 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     id: '1',
     title: 'Week 1 Contribution',
     subtitle: 'Paid on Oct 04',
-    amount: '$625.00',
+    amount: 'GH₵625.00',
     status: 'paid',
     borderColor: '#2ECC71',
     iconBg: '#1E3328',
@@ -56,7 +56,7 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     id: '2',
     title: 'Week 2 Contribution',
     subtitle: 'Paid on Oct 11',
-    amount: '$625.00',
+    amount: 'GH₵625.00',
     status: 'paid',
     borderColor: '#2ECC71',
     iconBg: '#1E3328',
@@ -67,7 +67,7 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     id: '3',
     title: 'Week 3 Contribution',
     subtitle: 'Processing Payment...',
-    amount: '$625.00',
+    amount: 'GH₵625.00',
     status: 'processing',
     borderColor: '#F59E0B',
     iconBg: '#2C2010',
@@ -78,7 +78,7 @@ const MOCK_CONTRIBUTIONS: Contribution[] = [
     id: '4',
     title: 'Week 4 Contribution',
     subtitle: 'Overdue by 2 days',
-    amount: '$625.00',
+    amount: 'GH₵625.00',
     status: 'overdue',
     borderColor: '#DC2626',
     iconBg: '#1E3328',
@@ -152,7 +152,7 @@ export default function MemberDashboardScreen() {
           <View style={styles.heroStats}>
             <View style={styles.heroStatBlock}>
               <Text style={styles.heroStatLabel}>Total Contributed</Text>
-              <Text style={styles.heroStatAmount}>$12,450.00</Text>
+              <Text style={styles.heroStatAmount}>GH₵12,450.00</Text>
             </View>
 
             <View style={styles.heroStatBlockRight}>
@@ -160,7 +160,7 @@ export default function MemberDashboardScreen() {
                 This Month
               </Text>
               <Text style={[styles.heroStatAmount, styles.textRight]}>
-                $2,500.00
+                GH₵2,500.00
               </Text>
             </View>
           </View>
